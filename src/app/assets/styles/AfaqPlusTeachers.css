@@ -1,0 +1,211 @@
+.afaqP-teachers {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.all-teachersP {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Desktop: 4 per row */
+    gap: 4rem;
+    padding: 6rem 3.5rem;
+    padding-bottom: 0;
+}
+
+@media (max-width: 1024px) { /* Tablet */
+    .all-teachersP {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile landscape / small tablets */
+    .all-teachersP {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .module{
+        top: -2.6rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile portrait */
+    .all-teachersP {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.one-card-P {
+    width: 260px;
+    height: 260px;
+    position: relative;
+    border: 0.5px solid #FF00E140;
+    margin-bottom: 4rem;
+    border-radius: 50% /50%;
+    box-shadow: 0px 4px 12.3px 5px #FF00E140;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.img-wrapper{
+    position: absolute;
+    bottom: 50%;
+    padding: 0;
+}
+.main-img{
+    height: 220px;
+    width: auto;
+    z-index: 99;
+}
+.teacher-name-P {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+    color: #000957;
+
+}
+
+.info-name{
+    position: absolute;
+    bottom: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.module-P {
+    font-family: 'Poppins';
+font-weight: 300;
+font-style: Light;
+font-size: 14px;
+position: absolute;
+line-height: 23px;
+letter-spacing: 0%;
+text-align: center;
+color: #000957;
+box-shadow: 0px 4px 7.1px 0px #FF09E069;
+background-color: white;
+z-index: 4;
+border-radius: 10px;
+max-width: 110px ;
+
+text-align: center;
+right: -50px;
+padding: 1rem 0.5rem;
+
+
+}
+
+.teacher-info-P {
+    background: linear-gradient(90deg, rgba(3, 255, 247, 0.62) 0%, rgba(22, 2, 71, 0.62) 100%);
+    border: 0.3px solid #D800B9;
+    box-shadow: 0px 4px 11.8px 0px #D800B936;
+    margin-top: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+color: #FFFFFF;
+
+    padding: 0.05rem 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+
+}
+.teacher-info-P:hover{
+    background-color: #a99c65;
+}
+
+
+/* Tablet */
+@media (max-width: 1025px) {
+    .all-teachersP {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4rem;
+        padding: 6rem 3.5rem 0 1rem;
+        justify-items: center; /* horizontally center grid items */
+        align-items: center;   /* vertically center grid items */
+    }
+
+    .one-card-P {
+        height: 200px; /* fixed height for equal cards */
+        width: 200px;
+    }
+
+     .main-img {
+        height: 170px;
+    }
+    .teacher-info-P {
+        font-size: 12px;
+    }
+    .teacher-name-P{
+        font-size: 15px;
+    }
+    .module-P{
+        font-size: 12px;
+line-height: 20px;
+right: -35%;
+padding: 0.5rem 0;
+    }
+
+    
+}
+
+/* Mobile landscape / small tablets */
+@media (max-width: 768px) {
+    .all-teachersP {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+
+    }
+
+    .one-card-P {
+        height: 200px;
+        width: 220px;
+    }
+
+    .main-img {
+        max-height: 65%;
+    }
+        .module-P{
+        right: -55px;
+        padding: 0.5rem 0;
+    }
+}
+
+/* Mobile portrait */
+@media (max-width: 651px) {
+    .all-teachersP {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        margin-top: 4rem;
+
+    }
+
+    .one-card-P {
+        height: 270px;
+        width: 270px;
+
+    }
+
+    .main-img {
+        height: 200px;
+    }
+    .teacher-info-P {
+        font-size: 12px;
+    }
+    .teacher-name-P{
+        font-size: 17px;
+    }
+    .module-P{
+        font-size: 12px;
+        right: -50px;
+    }
+}

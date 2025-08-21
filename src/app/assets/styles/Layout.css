@@ -1,0 +1,31 @@
+/* Layout styles */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Adjust based on navbar height */
+  padding-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+}
+
+.afaq-layout-bg {
+  background-color: #010635;
+  background-image: url('../images/backgroundafaq+1.png');
+  background-size: 100% auto; 
+  background-repeat: no-repeat;
+  background-position: top center;
+
+  height: fit-content;
+  width: 100%;
+}
+

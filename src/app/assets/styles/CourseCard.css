@@ -1,0 +1,182 @@
+/* Course Card Styling - Using specific prefix to avoid conflicts */
+.afaq-course-card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 262px !important;
+  height: 392px !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.afaq-course-card-image-container {
+  position: relative;
+  height: 245px;
+
+}
+
+.afaq-course-card-image {
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+}
+
+.afaq-course-card-star-icon {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem; /* Changed from left to right */
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.afaq-course-card-star-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #eab308;
+}
+
+.afaq-course-card-subject-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #37AEE2;
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 0.75rem;
+}
+
+.afaq-course-card-subject-text {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.afaq-course-card-avatar {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.afaq-course-card-avatar-inner {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #d1d5db;
+  border-radius: 50%;
+}
+
+.afaq-course-card-content {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.afaq-course-card-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.1rem;
+  font-size: 1rem;
+}
+
+.afaq-course-card-instructor {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #4b5563;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.afaq-course-card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.afaq-course-card-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.afaq-course-card-chapters-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #094EC5;
+}
+
+.afaq-course-card-chapters-text {
+  color: #094EC5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+}
+
+.afaq-course-card-price-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #00A61C;
+}
+
+.afaq-course-card-price-text {
+  color: #00A61C;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+}
+
+.afaq-course-card-button {
+  width: 100% !important;
+  background: linear-gradient(to right, #fef3c7, #FFCC00) !important;
+  color: #1f2937 !important;
+  padding: 0.5rem !important;
+  border-radius: 0.5rem !important;
+  border: 0.3px solid gray !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  margin-top: auto !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.afaq-course-card-button:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+
+.afaq-course-card-button-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  filter: brightness(0.8) !important;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  overflow: visible;
+}

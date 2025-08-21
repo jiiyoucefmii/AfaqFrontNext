@@ -1,0 +1,283 @@
+.addquiz {
+    direction: ltr;
+    padding: 2rem 0;
+}
+
+.big-quiz {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 100%;
+    color: #343434;
+    text-align: left;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.hr-quiz {
+    width: 100%;
+    height: 2px;
+    background-color: #00052B;
+    border: none;
+    margin: 1rem 0;
+}
+
+.top1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* ✅ centré verticalement */
+    flex-wrap: wrap; /* ✅ pour que ça descende si pas de place */
+    gap: 1rem;
+
+}
+
+.add-quiz {
+    border: 1px solid #254D9E;
+    padding: 0 35px;
+    border-radius: 12px;
+    gap: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    height: 45px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* --- Dropdown --- */
+.dropdown-group3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  direction: rtl;
+  flex-wrap: wrap;
+}
+
+.dropdown-form {
+  direction: rtl;
+}
+
+.dropdown-group3 label {
+  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Poppins';
+  color: #606060;
+  display: inline-block;
+  border-bottom: 1.5px solid #000000;
+  padding-bottom: 5px;
+}
+
+.dropdown-group3 select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px 40px 5px 20px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #606060;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: 'Poppins';
+  cursor: pointer;
+  text-align: right;
+  background: url('../images/arrow-circle-right-black.svg') no-repeat left 10px center;
+  background-size: 1.2rem;
+  min-width: 23rem;
+}
+
+.dropdown-group3 select option {
+  background-color: #010635;
+  color: #FFEA97;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #02123a;
+  text-align: right;
+  padding-right: 0;
+}
+
+.dropdown-group3 select option:hover {
+  background-color: #02123a;
+  color: #FFEA97;
+}
+
+
+
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 1280px) {
+    .big-quiz {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .big-quiz {
+        font-size: 40px;
+    }
+    .dropdown-group3 {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-quiz {
+        font-size: 32px;
+        text-align: center;
+        width: 100%;
+    }
+    .top1 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dropdown-group3 {
+        flex-direction: column;
+        align-items: center;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    .dropdown-group3 select {
+        width: 100%;
+        min-width: 20rem;
+    }
+    .top1{
+            padding-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .big-quiz {
+        font-size: 28px;
+    }
+
+
+  }.form-group input,
+.form-group-title input,
+.option-input {
+  width: 100%;
+  height: 60px;
+  direction: rtl;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 18px;
+  padding: 0.75rem 3rem 0.75rem 2.5rem; /* dynamic padding */
+  background: url('../images/InputIcon.svg') no-repeat left 10px center;
+  background-size: 20px;
+  background-color: #C9D3DA;
+  box-sizing: border-box;
+}
+
+.form-group-title input {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.form-group input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: right;
+  color: #1F1F1F;
+}
+
+.form-group-title input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+  color: #1F1F1F;
+}
+
+/* Question textarea */
+.question textarea {
+  width: 100%;
+  min-height: 120px;
+  background-color: #C9D3DA;
+  direction: rtl;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  resize: vertical;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+}
+
+.question textarea::placeholder {
+  font-weight: 600;
+  font-size: 18px;
+  text-align: right;
+  color: #1F1F1F;
+}
+
+/* Buttons */
+.btn-q {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.submit-btn {
+  background-color: #D4FFB9;
+  padding: 1rem 3rem;
+  flex: 1;
+}
+
+.add-option {
+  background-color: #7AA8CE;
+  padding: 1rem 3rem;
+  flex: 5;
+  width: auto;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap; /* allows stacking on small screens */
+  gap: 1rem;
+  justify-content: center;
+  direction: rtl;
+  margin-top: 1.5rem;
+}
+
+/* 🔹 Responsiveness */
+@media (max-width: 768px) {
+  .form-group input,
+  .form-group-title input,
+  .option-input,
+  .question textarea {
+    font-size: 16px;
+    padding: 0.6rem 2.5rem 0.6rem 2rem;
+  }
+
+  .btn-q {
+    font-size: 18px;
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-actions {
+    flex-direction: column; /* buttons stack */
+    width: 100%;
+  }
+
+  .btn-q {
+    width: 100%;
+    font-size: 16px;
+  }
+}

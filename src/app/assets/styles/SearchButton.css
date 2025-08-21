@@ -1,0 +1,147 @@
+.searchbar {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  z-index: 3;
+  height: 44px;
+  background: white;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 600px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.searchbar:hover {
+  box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.445);
+}
+
+.searchbar-wrapper {
+  flex: 1;
+  display: flex;
+  padding: 5px 8px 0 14px;
+}
+
+.searchbar-left {
+  font-size: 14px;
+  font-family: arial, sans-serif;
+  color: #202124;
+  display: flex;
+  align-items: center;
+  padding-right: 13px;
+  margin-top: -5px;
+}
+
+.search-icon-wrapper {
+  margin: auto;
+}
+
+.search-icon {
+  margin-top: 3px;
+  color: #9aa0a6;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+}
+
+.searchbar-right {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.searchbar-input-spacer {
+  color: transparent;
+  flex: 100%;
+  white-space: pre;
+  height: 34px;
+  font-size: 16px;
+}
+
+.searchbar-input {
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  color: #6E6D6D;
+  font-weight: 500;
+  border: none;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  margin-top: -37px;
+  height: 34px;
+  font-size: 18px;
+  max-width: 100%;
+  direction: ltr;
+  text-align: left;
+}
+
+.horizontal-line {
+  height: 1px;
+  width: 48%;
+  background:  #03FFF7;
+  margin: 2rem auto;
+  border-radius: 1px;
+}
+
+
+/* Responsive Media Queries */
+
+@media screen and (max-width: 768px) {
+  .searchbar {
+    width: 60%;
+  }
+
+  .horizontal-line{
+    width: 60%;
+  }
+
+  .searchbar-input {
+    font-size: 16px;
+    height: 32px;
+  }
+
+  .search-icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .searchbar-input-spacer {
+    font-size: 14px;
+    height: 32px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .searchbar {
+    width: 70%;
+  }
+  .horizontal-line{
+    width: 70%;
+  }
+
+
+  .searchbar-input {
+    font-size: 15px;
+    height: 30px;
+  }
+
+  .search-icon {
+    height: 18px;
+    width: 18px;
+  }
+
+  .searchbar-wrapper {
+    padding: 4px 6px 0 10px;
+  }
+
+  .searchbar-left {
+    padding-right: 8px;
+  }
+}

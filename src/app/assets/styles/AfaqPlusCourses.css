@@ -1,0 +1,290 @@
+.afaqpluscourses {}
+
+.courses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    grid-template-rows: repeat(2, auto);
+    /* 2 rows */
+    padding: 0 2rem;
+}
+
+.one-card {
+    position: relative;
+}
+
+/* Base image */
+.original-img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+}
+
+.chapters {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: ltr;
+    left: 2.4rem;
+    bottom: 3.9rem;
+    height: 20px;
+}
+
+.chapters p {
+    font-family: 'Agdasima';
+    font-weight: 700;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: white;
+    letter-spacing: 0%;
+    text-shadow: 0 0 6.1px #FFFFFF9E;
+    padding-left: 0.9rem;
+    leading-trim: NONE;
+    text-align: center;
+}
+
+.chapters img {
+    height: 20px;
+    width: 20px;
+}
+
+.price {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    direction: ltr;
+    left: 2.4rem;
+    bottom: 2rem;
+}
+
+.price p {
+    font-family: 'Agdasima';
+    font-weight: 700;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 28px;
+    color: white;
+    text-shadow: 0 0 6.1px #FFFFFF9E;
+    padding-left: 0.9rem;
+    letter-spacing: 1.3px;
+}
+
+.price img {
+    height: 20px;
+    width: 20px;
+}
+
+.Play-now-btn-wrapper {
+    position: absolute;
+    display: inline-block;
+    padding: 0.3px;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #03FFF7 0%, #D800B9 100%);
+    bottom: 2.7rem;
+    right: 1.8rem;
+}
+
+.Play-now-btn {
+    padding: 4px 14px;
+    padding-left: 9px;
+    border-radius: 5px;
+    margin: 0.3px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    background: white;
+    direction: ltr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: conic-gradient(from 176.16deg at 40.1% 115.62%, #03FFF7 0deg, #D800B9 360deg);
+}
+
+.Play-now-btn img {
+    height: 19px;
+    width: 19px;
+}
+
+.Play-now-btn p {
+    padding-left: 4px;
+    padding-right: 7px;
+    margin: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    font-display: swap;
+    font-style: Bold;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.Play-now-btn:hover{
+  background: conic-gradient(from 176.16deg at 40.1% 115.62%, #03fff748 0deg, #d800b859 360deg);
+}
+.course-title {
+  position: absolute;
+  bottom: 7rem;
+  left: 0.65rem;
+  padding: 0.5px 1rem;
+  margin-right: 2rem;
+backdrop-filter: blur(37.5px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid;
+  border-image: linear-gradient(90deg, #03FFF7 0%, #D800B9 100%);
+  border-image-slice: 1;
+  border-image-repeat: stretch;
+  clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 0% 100%);
+  display: grid;
+  place-items: center;
+}
+
+.course-title p {
+    font-family: 'Agdasima';
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 26px;
+    padding-left: 2rem;
+    letter-spacing: 0%;
+    text-align: center;
+    font-variant-numeric: lining-nums;
+    font-variant-numeric: proportional-nums;
+    color: #FFFFFF;
+    text-shadow: 0px 1px 3.2px #000957;
+    padding-right: 4rem;
+    
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.15);
+}
+.like-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.star-icon {
+  width: 34px;
+  height: 34px;
+}
+/* Tablets (medium screens) */
+@media screen and (max-width: 1024px) {
+  .courses {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 4 */
+    padding: 0 1.5rem;
+  }
+
+  .course-title p {
+    font-size: 22px;
+  }
+
+  .chapters p,
+  .price p {
+    font-size: 16px;
+  }
+
+  .Play-now-btn p {
+    font-size: 12px;
+  }
+}
+
+/* Mobile phones (small screens) */
+@media screen and (max-width: 600px) {
+  .courses {
+    grid-template-columns: 1fr; /* 1 card per row */
+    padding: 0 1rem;
+  }
+
+  .course-title {
+    bottom: 6rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .course-title p {
+    font-size: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .chapters,
+  .price {
+    left: 1rem;
+    bottom: 3.5rem;
+  }
+
+  .chapters p,
+  .price p {
+    font-size: 14px;
+  }
+
+  .Play-now-btn-wrapper {
+    bottom: 2.2rem;
+    right: 1rem;
+  }
+
+  .Play-now-btn {
+    padding: 3px 10px;
+  }
+
+  .Play-now-btn p {
+    font-size: 12px;
+  }
+
+  .star-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+}
+
+.image-wraper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* Keep blur inside */
+}
+
+.image-wraper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Blurred overlay */
+.image-wraper::after {
+  content: '';
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  height: 100%;
+  border-radius: 1rem;
+  background: inherit; /* Inherit image background */
+  backdrop-filter: blur(8px); /* Apply blur */
+  -webkit-backdrop-filter: blur(8px);
+  mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+  pointer-events: none;
+  
+}

@@ -1,0 +1,132 @@
+.afaq-teachers {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.all-teachers {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Desktop: 4 per row */
+    gap: 2rem;
+    padding: 2rem 3.5rem;
+}
+
+@media (max-width: 1024px) { /* Tablet */
+    .all-teachers {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) { /* Mobile landscape / small tablets */
+    .all-teachers {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .module{
+        top: -2.6rem;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile portrait */
+    .all-teachers {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.one-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 0.5px solid #00000012;
+    margin-bottom: 4rem;
+    border-radius: 20px;
+}
+
+.white-bottom {
+    position: absolute;
+    bottom: -4rem;
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid #00000012;
+}
+
+.teacher-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #606060;
+}
+
+.module {
+    background: linear-gradient(90deg, #FFEA97 0%, #FFE063 100%);
+    position: absolute;
+    top: -2.95rem;
+    left: -0.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0.6rem 1.8rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #606060;
+}
+
+.teacher-info {
+    background: linear-gradient(90deg, rgba(255, 222, 91, 0.62) 0%, rgba(255, 204, 0, 0.62) 100%);
+    border: 0.3px solid #606060ad;
+    margin-top: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    color: #606060;
+    padding: 0.05rem 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.teacher-info:hover{
+    background-color: #a99c65;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .all-teachers {
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+    .module, .teacher-name, .teacher-info {
+        font-size: 16px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .all-teachers {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .module {
+        font-size: 16px;
+        padding: 0.5rem 3rem;
+        top: -2.6rem;
+    }
+    .teacher-name {
+        font-size: 16px;
+    }
+    .teacher-info {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,349 @@
+.auth-form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.name-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.phone-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.education-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #000000;
+  direction: rtl;
+  text-align: right;
+  appearance: none;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.1);
+}
+
+.select.error {
+  border-color: #c53030;
+}
+
+.select.error:focus {
+  border-color: #c53030;
+  box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.1);
+}
+
+.select-arrow {
+  position: absolute;
+  left: 1rem;
+  color: #666666;
+  pointer-events: none;
+  font-size: 0.8rem;
+  transition: color 0.2s ease;
+}
+
+.select:focus + .select-arrow {
+  color: #ffcc00;
+}
+
+.select-icon {
+  position: absolute;
+  right: 1rem;
+  color: #666666;
+  font-size: 1.1rem;
+  pointer-events: none;
+  z-index: 1;
+  transition: color 0.2s ease;
+}
+
+.select:focus ~ .select-icon {
+  color: #ffcc00;
+}
+
+.auth-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -0.5rem;
+}
+
+.forgot-password-link {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  font-weight: 500;
+}
+
+.forgot-password-link:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.auth-submit-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none;
+  margin-top: 1rem;
+}
+
+.auth-submit-btn:hover:not(:disabled) {
+  background-color: #000000 !important;
+  color: #ffcc00 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #666666;
+  margin-top: 1rem;
+}
+
+.auth-switch-link {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-switch-link:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.checkbox-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.checkbox-input {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid #000000;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.checkbox-input:checked {
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+}
+
+.checkbox-text {
+  color: #000000;
+}
+
+.terms-link {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+  color: #000000;
+}
+
+.error-message {
+  padding: 0.875rem 1rem;
+  background-color: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  color: #c53030;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.submit-error {
+  margin-bottom: 0.5rem;
+}
+
+.success-message {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  width: 4rem;
+  height: 4rem;
+  background-color: #ffcc00;
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
+}
+
+.success-message h3 {
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.success-message p {
+  color: #666666;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.auth-actions {
+  margin-top: 2rem;
+}
+
+.back-to-login {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-to-login:hover {
+  background-color: #000000 !important;
+  color: #ffcc00 !important;
+}
+
+.forgot-password-info {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.forgot-password-info p {
+  color: #666666;
+  line-height: 1.6;
+}
+
+.password-requirements {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: -0.5rem;
+}
+
+.password-requirements p {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.password-requirements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.password-requirements li {
+  font-size: 0.875rem;
+  color: #666666;
+  padding: 0.25rem 0;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.password-requirements li::before {
+  content: "✗";
+  position: absolute;
+  right: 0;
+  color: #c53030;
+  font-weight: bold;
+}
+
+.password-requirements li.valid {
+  color: #ffcc00;
+}
+
+.password-requirements li.valid::before {
+  content: "✓";
+  color: #ffcc00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .name-fields,
+  .phone-fields,
+  .education-fields {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .auth-form {
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .checkbox-label {
+    font-size: 0.85rem;
+  }
+
+  .success-message {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .success-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,150 @@
+.horizontal-line1 {
+  height: 1px;
+  width: 100%;
+  background: #000000;
+  margin: auto;
+  border-radius: 1px;
+}
+
+.dropdown-group1 {
+  display: flex;
+  flex-direction: row;
+  min-width: 250px;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.filter-teachers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3rem;
+  flex-direction: row; /* allows items to go to next line on small screens */
+}
+
+.dropdown-form {
+  direction: rtl;
+}
+
+.dropdown-group1 label {
+  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Poppins';
+  color: #606060;
+  display: inline-block;
+  border-bottom: 1.5px solid #000000;
+  padding-bottom: 5px;
+}
+
+.dropdown-group1 select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px 40px 5px 20px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  background-color: transparent;
+  color: #606060;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-family: 'Poppins';
+  cursor: pointer;
+  text-align: right;
+  background: url('../images/arrow-circle-right-black.svg') no-repeat left 10px center;
+  background-size: 1.2rem;
+  min-width: 10rem;
+}
+
+.dropdown-group1 select option {
+  background-color: #010635;
+  color: #FFEA97;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #02123a;
+  text-align: right;
+  padding-right: 0;
+}
+
+.dropdown-group1 select option:hover {
+  background-color: #02123a;
+  color: #FFEA97;
+}
+
+.filter-teachers p {
+  font-family: Amiri;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 69px;
+  letter-spacing: 0%;
+  font-variant-numeric: lining-nums;
+  font-variant-numeric: proportional-nums;
+  color: #0A0A09;
+  padding-right: 1rem;
+  padding-left: 0.6rem;
+}
+
+.filter-teachers img {
+  width: 200px;
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 992px) {
+  
+
+  .filter-teachers img {
+    width: 150px;
+  }
+
+  .filter-teachers p {
+    font-size: 26px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .dropdown-group1{
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown-group1 label {
+    font-size: 1.2rem;
+    width: 30%;
+  }
+
+  .dropdown-group1 select {
+    font-size: 1.2rem;
+    padding: 5px 35px 5px 15px;
+    background-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .filter-teachers {
+    padding: 0.5rem;
+  }
+
+  .filter-teachers img {
+    width: 120px;
+  }
+
+  .filter-teachers p {
+    font-size: 22px;
+    padding: 0;
+  }
+
+  .dropdown-group1 select {
+    font-size: 1rem;
+    padding: 5px 30px 5px 10px;
+    background-size: 0.9rem;
+  }
+
+  .dropdown-group1 label {
+    font-size: 1rem;
+    width: 20%;
+  }
+  
+}

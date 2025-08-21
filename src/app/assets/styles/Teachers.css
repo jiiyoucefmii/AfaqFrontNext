@@ -1,0 +1,39 @@
+.teachers {
+    width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+/* Text Section Wrapper */
+.first-text {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Headline Styling */
+.first-text h2 {
+    font-family: 'Amiri';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 70px;
+    line-height: 1.2;
+    color: black;
+    font-size: clamp(36px, 7vw, 70px); 
+    margin: 0;
+
+}
+
+
+.first-text p {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-style: normal; /* use normal or italic */
+    font-size: clamp(16px, 3vw, 26px); 
+    line-height: 1.5;
+    text-align: right;
+    color: #050505;
+    word-spacing: 0.3em;
+    text-align: center;
+    padding: 1rem 0 3rem;
+}
+

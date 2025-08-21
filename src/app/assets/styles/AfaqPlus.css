@@ -1,0 +1,72 @@
+.afaq-plus {
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Text Section Wrapper */
+.first-text {
+  margin-bottom: 2rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10rem 2rem 3rem;
+  flex-direction: column;
+}
+
+/* Headline Styling */
+.first-text h1 {
+  font-size: 68px;
+  color: white;
+  font-family: 'baloo2', sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, #D800B9, #03FFF7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Quantico', sans-serif;
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* ✅ Responsive Media Queries */
+@media (max-width: 1024px) {
+  .first-text {
+    padding: 4rem 1.5rem 2rem;
+  }
+
+  .first-text h1 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .first-text {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .first-text h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .first-text {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .first-text h1 {
+    font-size: 1.8rem;
+    line-height: 45px;
+  }
+}

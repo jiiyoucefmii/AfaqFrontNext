@@ -1,0 +1,292 @@
+/* ------------------- Base ------------------- */
+.sidenav {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    background-image: url('/src/assets/images/backgroundnav.jpg');
+    background-color: rgba(1, 6, 53, 0.7);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    width: 10.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+/* Open sidebar on small screens */
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Top logo section */
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+/* Main content */
+.content {
+    margin-left: 11rem;
+    flex: 1;
+    padding: 1rem;
+    transition: margin-left 0.3s ease;
+}
+
+/* Logo */
+.logo-afaq {
+    height: 120px;
+    width: 120px;
+}
+
+/* Horizontal line under logo */
+.hr-logo {
+    width: 80%;
+}
+
+/* Navigation icons */
+.nav-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-icon p {
+    margin-left: 0.5rem;
+}
+
+/* Active state */
+.nav-icon.active p,
+.nav-icon.active svg {
+    color: #FFC800;
+    stroke: #FFC800;
+}
+
+.barr {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.barr p {
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: -3%;
+    text-align: center;
+    color: #EEEEEE;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.iconii {
+    size: 25px;
+}
+
+/* Log out button */
+.log-out {
+    padding: 2rem 0;
+}
+
+.log-out p {
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 43px;
+    letter-spacing: -3%;
+    text-align: center;
+    color: #EEEEEE;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: rgba(1, 6, 53, 0.7);
+    cursor: pointer;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 8rem;
+    }
+
+    .content {
+        margin-left: 8rem;
+    }
+
+    .logo-afaq {
+        height: 90px;
+        width: 90px;
+    }
+
+    .barr p,
+    .log-out p {
+        font-size: 16px;
+        line-height: 36px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        margin-top: 80px;
+    }
+
+    .barr{
+        gap: 3rem;
+    }
+
+    .nav-icon {
+        flex-direction: column;
+    }
+
+    .logo-afaq {
+        height: 60px;
+        width: 60px;
+    }
+
+    .log-out {
+        padding-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .barr p,
+    .log-out p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .logo-afaq {
+        height: 50px;
+        width: 50px;
+    }
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    font-size: 2rem;
+    color: rgba(1, 6, 53, 0.7);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Sidebar hidden on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 10.5rem;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        margin-top: 0;
+    }
+}
+
+/* Medium screens: 1024px and below */
+@media (max-width: 1024px) {
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        width: 8rem;          /* slightly smaller */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;       /* content moves to full width */
+    }
+
+    .barr p,
+    .log-out p {
+        font-size: 16px;      /* smaller text */
+    }
+
+    .logo-afaq {
+        height: 60px;
+        width: 60px;
+    }
+    .barr{
+        gap: 2rem;
+    }
+}

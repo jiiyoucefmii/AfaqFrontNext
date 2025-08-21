@@ -1,0 +1,293 @@
+.verify-email-page {
+  min-height: 100vh;
+  /* Updated background to use the SVG image */
+  background: url('../images/backgroundafaq.svg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns content to the left */
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+/* The ::before pseudo-element is no longer needed for the background, so it is removed. */
+.verify-email-page::before {
+  display: none;
+}
+
+.verify-email-container {
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Removed box styling */
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  position: relative;
+  z-index: 2;
+  margin-left: 5rem; /* Pushes the container to the left with some margin */
+}
+
+.verify-email-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content inside the form to the left */
+}
+
+.verify-email-header {
+  text-align: left; /* Aligns header text to the left */
+  margin-bottom: 2rem;
+}
+
+.logo-container {
+  margin-bottom: 2rem;
+  margin-left: 0; /* Ensures the logo is aligned left */
+}
+
+.logo-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns logo icon to the left */
+  margin: 0; /* Resets margin to align left */
+}
+
+/* No changes needed for .logo-squares */
+
+.verify-email-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.verify-email-subtitle {
+  font-size: 0.9rem;
+  color: #666666;
+  font-weight: 400;
+}
+
+.verify-email-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.email-display {
+  width: 100%;
+}
+
+.email-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.email-icon {
+  position: absolute;
+  left: 1rem;
+  color: #666666;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.email-input {
+  width: 100%;
+  padding: 0.875rem 3rem 0.875rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f5f5f5;
+  color: #666666;
+  cursor: not-allowed;
+  text-align: right;
+  direction: rtl;
+}
+
+.verify-info {
+  text-align: left; /* Aligns info text to the left */
+  margin: -0.5rem 0;
+}
+
+.verify-info p {
+  color: #666666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.verification-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.verification-icon {
+  position: absolute;
+  left: 1rem;
+  color: #666666;
+  font-size: 1rem;
+  z-index: 1;
+}
+
+.verification-input {
+  width: 100%;
+  padding: 0.875rem 3rem 0.875rem 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  font-weight: 600;
+}
+
+.verification-input:focus {
+  outline: none;
+  border-color: #ffcc00;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.1);
+}
+
+.verification-input.error {
+  border-color: #c53030;
+}
+
+.verification-input.error:focus {
+  border-color: #c53030;
+  box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.1);
+}
+
+.verify-submit-btn {
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none;
+  margin-top: 0.5rem;
+}
+
+.verify-submit-btn:hover:not(:disabled) {
+  background-color: #000000 !important;
+  color: #ffcc00 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.resend-section {
+  text-align: left; /* Aligns resend text to the left */
+  margin-top: 1rem;
+}
+
+.resend-section p {
+  color: #666666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.resend-link {
+  background: none;
+  border: none;
+  color: #ffcc00;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.resend-link:hover:not(:disabled) {
+  color: #000000;
+}
+
+.resend-link:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-text {
+  color: #c53030;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left; /* Aligns error text to the left */
+  margin-top: 0.5rem;
+}
+
+.error-message {
+  padding: 0.75rem 1rem;
+  background-color: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 8px;
+  color: #c53030;
+  font-size: 0.875rem;
+  text-align: left; /* Aligns error message text to the left */
+}
+
+.success-message {
+  padding: 0.75rem 1rem;
+  background-color: #f0fff4;
+  border: 1px solid #9ae6b4;
+  border-radius: 8px;
+  color: #2f855a;
+  font-size: 0.875rem;
+  text-align: left; /* Aligns success message text to the left */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .verify-email-page {
+    padding: 1rem;
+    justify-content: center; /* Centers the content on smaller screens */
+  }
+
+  .verify-email-container {
+    padding: 2rem 1.5rem;
+    max-width: 400px;
+    margin-left: 0; /* Removes left margin on smaller screens */
+  }
+
+  .verify-email-title {
+    font-size: 1.5rem;
+  }
+
+  .verify-email-page::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .verify-email-container {
+    padding: 1.5rem 1rem;
+    max-width: 350px;
+  }
+
+  .verify-email-title {
+    font-size: 1.25rem;
+  }
+
+  .logo-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-squares {
+    width: 45px;
+    height: 45px;
+  }
+
+  .verify-email-page::before {
+    display: none;
+  }
+}

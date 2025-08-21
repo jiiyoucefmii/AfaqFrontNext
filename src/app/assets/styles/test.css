@@ -1,0 +1,42 @@
+
+.back {
+    position: relative;
+
+}
+
+.front{
+    position: relative;
+}
+.right{
+    height: 100px;
+    width: 12px;
+    background-color: #38D3DA;
+    position: absolute;
+    bottom: -225px;
+    z-index: 0;
+    left: 20px;
+    transform-origin: right center; /* pivot from right end */
+  transform: rotate(20deg);
+
+}
+.top{
+    height: 12px;
+    width: 100px;
+    background-color: #38D3DA;
+    position: absolute;
+    top: 50px;
+    z-index: 0;
+    right: 0;
+}
+
+
+.bottom{
+    background-color: #000957;
+    height: 12px;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    width: 100px;
+    left: 0;
+}
+

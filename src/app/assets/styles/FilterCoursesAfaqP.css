@@ -1,0 +1,158 @@
+
+.dropdown-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  direction: rtl;
+  padding: 1.5rem 5rem;
+  padding-bottom: 2rem;
+}
+
+.dropdown-group {
+  display: flex;
+  flex-direction: row;
+  min-width: 250px;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.dropdown-group label {
+  margin-bottom: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: 'Poppins';
+  color: white;
+  display: inline-block;
+  border-bottom: 1.5px solid #D800B9; /* Change to any color you want */
+  padding-bottom: 5px; /* Adjust the distance from text to line */
+}
+
+.dropdown-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px 40px 5px 20px;
+  border-radius: 10px;
+  border: 1px solid #D800B9;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 300;
+  min-width: 10rem;
+  font-family: 'Poppins';
+  cursor: pointer;
+  text-align: right;
+
+  background: url('../images/arrow-circle-right.svg') no-repeat  10px center;
+  background-size: 1.2rem;
+  
+}
+
+.dropdown-group select option {
+  background-color: #010635;   /* deep blue background */
+  color: #03FFF7;              /* neon turquoise text */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #02123a;
+  text-align: right;
+  padding-right: 0;
+  
+}
+
+.dropdown-group select option:hover {
+  background-color: #02123a;
+  color: #D800B9;
+}
+
+.slider-range label {
+  margin-bottom: 0.3rem;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: 'Poppins';
+  color: white;
+  display: inline-block;
+  border-bottom: 1.5px solid #D800B9; /* Change to any color you want */
+  padding-bottom: 5px; /* Adjust the distance from text to line */
+}
+
+.slider-range{
+  display: flex;
+  flex-direction: row;
+  min-width: 120px;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* Medium screens: tablets and small laptops */
+@media (max-width: 992px) {
+  .dropdown-form {
+    padding: 1rem 3rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .dropdown-group {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .slider-range{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .dropdown-group select {
+    width: 100%;
+    font-size: 1.2rem;
+    background-position: left 12px center;
+  }
+
+  .dropdown-group label {
+    font-size: 1.2rem;
+  }
+  .slider-range label {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small screens: phones */
+@media (max-width: 576px) {
+  .dropdown-form {
+    padding: 1rem 1.5rem;
+  }
+
+  .dropdown-group {
+    width: 100%;
+    margin-bottom: 1rem;
+    gap: 0.6rem;
+  }
+  .slider-range{
+    width: 100%;
+    margin-bottom: 1rem;
+    gap: 0.6rem;
+  }
+  .dropdown-group select {
+    font-size: 1rem;
+    padding: 6px 40px 6px 12px;
+    background-size: 1rem;
+  }
+
+  .dropdown-group label {
+    font-size: 1rem;
+    padding-bottom: 3px;
+  }
+  .slider-range label {
+    font-size: 1rem;
+    padding-bottom: 3px;
+  }
+}
