@@ -1,13 +1,13 @@
-export default function AuthLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+import { ReactNode } from "react"
+
+interface AuthLayoutProps {
+  children: ReactNode
+}
+
+export default function AuthLayout({ children }: AuthLayoutProps) {
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4">
-        {children}
-      </div>
+    <div className="auth-layout">
+      {children}
     </div>
   )
 }

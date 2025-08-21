@@ -23,7 +23,7 @@ const InputField = ({ type, name, placeholder, value, onChange, error, className
         return <FaUser className="input-icon" />
       case "password":
       case "confirmPassword":
-        return null // Password fields don't need icons since they have toggle buttons
+        return null
       default:
         return null
     }

@@ -1,10 +1,12 @@
-import { useLocation } from "react-router-dom"
+"use client"
+
+import { usePathname } from "next/navigation"
+import Image from "next/image"
 import "../../assets/styles/AuthLayout.css"
-// Import your logo - adjust the path according to your logo location
 import logo from "../../assets/images/LogoFrame.svg"
 
 const AuthLayout = ({ children, title, subtitle, pageType = "default" }) => {
-  const location = useLocation()
+  const pathname = usePathname()
 
   const getPageClass = () => {
     if (pageType === "forgot-password") return "forgot-password"
@@ -13,14 +15,14 @@ const AuthLayout = ({ children, title, subtitle, pageType = "default" }) => {
   }
 
   const isFullWidth =
-    location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/register"
+    pathname === "/auth/login" || pathname === "/auth/signup" || pathname === "/auth/register"
 
   return (
     <div className={`auth-page ${getPageClass()}`}>
       <div className={`auth-container ${isFullWidth ? "full-width" : ""}`}>
         <div className="auth-content">
           <div className="auth-header">
-            <img src={logo || "/placeholder.svg"} alt="AFAQ Logo" className="auth-logo" />
+            <Image src={logo} alt="AFAQ Logo" className="auth-logo" width={120} height={40} />
             <h1 className="auth-title">{title}</h1>
             {subtitle && <p className="auth-subtitle">{subtitle}</p>}
           </div>
