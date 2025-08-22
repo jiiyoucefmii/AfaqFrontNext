@@ -265,7 +265,7 @@ backdrop-filter: blur(37.5px);
   overflow: hidden; /* Keep blur inside */
 }
 
-.image-wraper img {
+.original-img {
   display: block;
   width: 100%;
   height: auto;
@@ -287,4 +287,30 @@ backdrop-filter: blur(37.5px);
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
   pointer-events: none;
   
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.original-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Overlay div instead of ::after */
+.blur-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%; /* adjust height for gradient effect */
+  background: rgba(0,0,0,0.2); /* semi-transparent overlay */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;
 }
