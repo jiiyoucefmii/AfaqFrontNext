@@ -6,7 +6,7 @@
 
 /* Sidebar */
 .sidebar {
-    background-image: url('/src/assets/images/backgroundnav.jpg');
+    background-image: url('../images//backgroundnav.jpg');
     background-color: rgba(1, 6, 53, 0.7);
     background-blend-mode: overlay;
     background-size: cover;
@@ -92,6 +92,7 @@
     letter-spacing: -3%;
     text-align: center;
     color: #EEEEEE;
+    text-decoration: none;
 }
 
 a {
@@ -99,6 +100,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-decoration: none;
 }
 
 .iconii {
