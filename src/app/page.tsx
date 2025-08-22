@@ -51,9 +51,9 @@ export default function LandingPage() {
       <HeroSection />
       <StudentCategoriesSection />
       <FeaturesSection />
-      {/* Stats section component  
+      
       <StatsSection stats={stats} />
-      */}
+      
       <CoursesSection />
       <AfaqPlusSection />
       <ProgramPathSection />
