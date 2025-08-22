@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import '../../assets/styles/RangeSlider.css';
 
 function RangeSlider() {
-  const [value, setValue] = useState(2500); // valeur initiale
+  const [value, setValue] = useState<number>(2500); // valeur initiale
 
   const min = 0;
   const max = 10000;
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(event.target.value));
   };
 
@@ -16,7 +16,7 @@ function RangeSlider() {
   const getBackgroundSize = () => {
     const percent = ((value - min) / (max - min)) * 100;
     return {
-      background: `linear-gradient(to right, #03FFF7 ${percent}%, #ffffff ${percent}%)`
+      background: `linear-gradient(to left, #03FFF7 ${percent}%, #ffffff ${percent}%)`
     };
   };
 

@@ -3,7 +3,13 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import '../../assets/styles/Pagination.css';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const getPagination = () => {
     if (totalPages <= 5) {
       return [...Array(totalPages).keys()].map((n) => n + 1);
@@ -13,7 +19,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     return [1, '...', currentPage, '...', totalPages];
   };
 
-  // ✅ Next.js version
   const pathname = usePathname();
   const isTeachers = pathname === "/teachers";
   const isProfile = pathname.includes("/profile");

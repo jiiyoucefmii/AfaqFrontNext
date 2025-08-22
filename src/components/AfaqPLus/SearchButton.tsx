@@ -11,7 +11,7 @@ const SearchButton = () => {
             <input
               type="text"
               className="searchbar-input"
-              maxLength="2048"
+              maxLength={2048} 
               name="q"
               autoCapitalize="off"
               autoComplete="off"
@@ -19,6 +19,7 @@ const SearchButton = () => {
               role="combobox"
               placeholder="Search"
             />
+
           </div>
 
           <div className="searchbar-left">

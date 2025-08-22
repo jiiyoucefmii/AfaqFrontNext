@@ -14,7 +14,6 @@ export default function AfaqPlusPage() {
         </h1>
       </div>
       <SearchButton />
-      <FilterCoursesAfaqP />
       <AfaqPlusCourses />
     </div>
   )

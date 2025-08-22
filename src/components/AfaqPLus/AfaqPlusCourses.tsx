@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import "../../assets/styles/AfaqPlusCourses.css";
 import CoursesAfaqP from "../../data/CoursesAfaqP";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Pagination from "./Pagination";
+import FilterCoursesAfaqP from "./FilterCoursesAfaqP";
 
 // Icons
 import starOutlined from "../../assets/images/Star.svg";
@@ -13,28 +14,37 @@ import tableOfContent from "../../assets/images/Table of Content.svg";
 import dollarIcon from "../../assets/images/Us Dollar Circled.svg";
 import playIcon from "../../assets/images/Circled Play Button.svg";
 
-const AfaqPlusCourses = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+// TypeScript type pour les cours
+type Course = {
+  id: number;
+  image: string | StaticImageData;
+  title: string;
+  chapters: number;
+  price: string;
+};
+
+const AfaqPlusCourses: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [likedCourses, setLikedCourses] = useState<number[]>([]);
+
   const itemsPerPage = 8;
   const totalPages = Math.ceil(CoursesAfaqP.length / itemsPerPage);
-
   const indexStart = (currentPage - 1) * itemsPerPage;
-  const displayedCourses = CoursesAfaqP.slice(indexStart, indexStart + itemsPerPage);
+  const displayedCourses: Course[] = CoursesAfaqP.slice(indexStart, indexStart + itemsPerPage);
 
-  const [likedCourses, setLikedCourses] = useState([]);
-
-  const toggleLike = (id) => {
-    setLikedCourses((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+  const toggleLike = (id: number) => {
+    setLikedCourses(prev =>
+      prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
     );
   };
 
   return (
     <div className="afaqpluscourses">
+      <FilterCoursesAfaqP/>
       <div className="courses">
-        {displayedCourses.map((course) => (
+        {displayedCourses.map(course => (
           <div className="one-card" key={course.id}>
-            <div className="image-wraper">
+            <div className="image-wrapper">
               <Image
                 src={course.image}
                 alt={course.title}
@@ -43,17 +53,13 @@ const AfaqPlusCourses = () => {
                 height={200}
                 priority
               />
-              <button
-                onClick={() => toggleLike(course.id)}
-                className="like-button"
-              >
+              <button onClick={() => toggleLike(course.id)} className="like-button">
                 <Image
                   src={likedCourses.includes(course.id) ? starFilled : starOutlined}
                   alt="like"
                   width={24}
                   height={24}
                   className="star-icon"
-
                 />
               </button>
             </div>
