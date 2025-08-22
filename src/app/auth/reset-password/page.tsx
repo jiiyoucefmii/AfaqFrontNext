@@ -19,6 +19,10 @@ interface FormErrors {
   submit?: string
 }
 
+interface ApiResponse {
+  message?: string
+}
+
 export default function ResetPasswordPage() {
   const [formData, setFormData] = useState<FormData>({
     password: "",
@@ -37,7 +41,7 @@ export default function ResetPasswordPage() {
     }
   }, [token, router])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
@@ -72,7 +76,7 @@ export default function ResetPasswordPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
 
     if (!validateForm()) return
@@ -97,7 +101,7 @@ export default function ResetPasswordPage() {
           router.push("/auth/login")
         }, 3000)
       } else {
-        const errorData = await response.json()
+        const errorData: ApiResponse = await response.json()
         setErrors({ submit: errorData.message || "حدث خطأ في إعادة تعيين كلمة المرور" })
       }
     } catch (error) {
@@ -142,7 +146,7 @@ export default function ResetPasswordPage() {
           value={formData.password}
           onChange={handleChange}
           error={errors.password}
-          showPasswordToggle
+          showPasswordToggle={true}
         />
 
         <InputField
@@ -152,7 +156,7 @@ export default function ResetPasswordPage() {
           value={formData.confirmPassword}
           onChange={handleChange}
           error={errors.confirmPassword}
-          showPasswordToggle
+          showPasswordToggle={true}
         />
 
         <Button type="submit" isLoading={isLoading} className="auth-submit-btn">

@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import '../../assets/styles/AfaqPlusTeachers.css';
+"use client";
 
-import Teachers from '../../data/TeachersPlus';
-import Pagination from './Pagination';
+import React, { useState } from "react";
+import Image, { StaticImageData } from "next/image";
+import "../../assets/styles/AfaqPlusTeachers.css";
+import Teachers from "../../data/TeachersPlus";
+import Pagination from "./Pagination";
 
-const AfaqPlusTeachers = () => {
+interface Teacher {
+  id: number;
+  image: StaticImageData; // imported image type
+  name: string;
+  module: string;
+}
+
+const AfaqPlusTeachers: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
   const totalPages = Math.ceil(Teachers.length / itemsPerPage);
@@ -15,14 +24,17 @@ const AfaqPlusTeachers = () => {
   return (
     <div className="afaqP-teachers">
       <div className="all-teachersP">
-        {displayedTeachers.map((teacher) => (
+        {displayedTeachers.map((teacher: Teacher) => (
           <div className="one-card-P" key={teacher.id}>
             <div className="img-wrapper">
-              
-              <img src={teacher.image} alt="teacher" className='main-img'/>
-              
-
-            </div>   
+              <Image
+                src={teacher.image}
+                alt={teacher.name}
+                className="main-img"
+                
+                priority
+              />
+            </div>
             <div className="module-P">{teacher.module}</div>
             <div className="gradient-rec"></div>
             <div className="info-name">
@@ -38,9 +50,6 @@ const AfaqPlusTeachers = () => {
         totalPages={totalPages}
         onPageChange={setCurrentPage}
       />
-
-     
-
     </div>
   );
 };

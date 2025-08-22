@@ -14,13 +14,18 @@
   justify-content: center;
   gap: 1.2rem;
 }
+.logo-txt{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;}
 
 .filter-teachers {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 3rem;
-  flex-direction: row; /* allows items to go to next line on small screens */
+  flex-direction: row; /* desktop stays horizontal */
 }
 
 .dropdown-form {
@@ -65,7 +70,6 @@
   font-size: 1.2rem;
   border-bottom: 1px solid #02123a;
   text-align: right;
-  padding-right: 0;
 }
 
 .dropdown-group1 select option:hover {
@@ -74,61 +78,74 @@
 }
 
 .filter-teachers p {
-  font-family: Amiri;
+  font-family: 'Amiri';
   font-weight: 700;
-  font-size: 32px;
+  font-size: 25px;
   line-height: 69px;
-  letter-spacing: 0%;
-  font-variant-numeric: lining-nums;
-  font-variant-numeric: proportional-nums;
   color: #0A0A09;
   padding-right: 1rem;
   padding-left: 0.6rem;
+  text-align: center;
 }
 
 .filter-teachers img {
-  width: 200px;
+  width: 330px;
+  height: auto;
+  padding-top: 0.5rem;
+}
+.afaqplus-logo{
+  padding-bottom: 1.5rem;
 }
 
-/* 📱 Responsive adjustments */
+/* Tablets */
 @media (max-width: 992px) {
-  
+  .filter-teachers {
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
 
   .filter-teachers img {
     width: 150px;
+    margin-bottom: 1rem;
   }
 
   .filter-teachers p {
     font-size: 26px;
     line-height: 1.4;
-    text-align: center;
   }
-  .dropdown-group1{
-    flex-direction: row;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .dropdown-group1 {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
   .dropdown-group1 label {
     font-size: 1.2rem;
-    width: 30%;
+    width: 100%;
+    text-align: center;
   }
 
   .dropdown-group1 select {
     font-size: 1.2rem;
     padding: 5px 35px 5px 15px;
     background-size: 1rem;
+    width: 100%;
   }
+  .afaqplus-logo{
+  padding-bottom: 0rem;
+}
 }
 
+/* Mobile */
 @media (max-width: 576px) {
   .filter-teachers {
     padding: 0.5rem;
   }
 
   .filter-teachers img {
-    width: 120px;
+    width: 200px;
+    margin: 0;
+    margin-top: 0.7rem;
   }
 
   .filter-teachers p {
@@ -136,15 +153,38 @@
     padding: 0;
   }
 
+  .dropdown-group1 {
+    gap: 0.5rem;
+  }
+
   .dropdown-group1 select {
     font-size: 1rem;
     padding: 5px 30px 5px 10px;
     background-size: 0.9rem;
+    width: 100%;
   }
 
   .dropdown-group1 label {
     font-size: 1rem;
-    width: 20%;
+    width: 100%;
+    text-align: center;
   }
-  
+  .logo-txt{
+    display: flex;
+    padding-top: 2rem;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .horizontal-line1{
+    opacity: 0;
+  }
+  .logo-txt p{
+    font-size: 30px;
+  }
+
+  .afaqplus-logo{
+  padding-bottom: 2rem;
+}
 }

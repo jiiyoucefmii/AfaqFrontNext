@@ -4,15 +4,16 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import '@/assets/styles/Navbar.css'
+import logo from '@/assets/images/LogoFrameBlack.svg'
+import afaqPlus_logo from '@/assets/images/afaqplus_logo.svg'
 import HamburgerIcon from '../ui/HamburgerIcon'
 import '../../assets/styles/Navbar.css'
-import logo from '../../assets/images/LogoFrameBlack.svg'
-import afaqPlus_logo from '../../assets/images/afaqplus_logo.svg'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isAfaqPlus = pathname === '/afaq-plus'
+  const isAfaqPlus = pathname === '/afaqplus' // ✅ FIXED route
   const [scrolled, setScrolled] = useState(false)
 
   // Detect scroll
@@ -64,13 +65,20 @@ const Navbar = () => {
         ${isAfaqPlus ? 'afaqplus-navbar' : ''} 
         ${isAfaqPlus && scrolled ? 'blurred' : ''}`}>
       <div className="navbar-container">
+        {/* Auth Buttons */}
         <div className="auth-buttons">
-          <Link href="/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`}>
+          <Link href="/auth/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`}>
             تسجيل الدخول
           </Link>
-          <Link href="/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`}>
+          <Link href="/auth/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`}>
             إنشاء حساب
           </Link>
+        </div>
+
+
+        {/* Mobile menu icon */}
+        <div className="menu-icon" onClick={toggleMenu}>
+          <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
 
         <HamburgerIcon 
@@ -79,6 +87,7 @@ const Navbar = () => {
           className={isAfaqPlus ? 'afaqplus' : ''}
         />
 
+        {/* Nav links */}
         <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
             <Link href="/" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
@@ -86,7 +95,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/afaq-plus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
+
+
+            <Link href="/afaqplus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               AFAQ+
             </Link>
           </li>
@@ -113,22 +124,26 @@ const Navbar = () => {
           
           {/* Mobile Auth Buttons */}
           <div className="mobile-auth-buttons">
-            <Link href="/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`} onClick={closeMenu}>
+            <Link href="/auth/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`} onClick={closeMenu}>
               تسجيل الدخول
             </Link>
-            <Link href="/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`} onClick={closeMenu}>
+            <Link href="/auth/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`} onClick={closeMenu}>
               إنشاء حساب
             </Link>
           </div>
         </ul>
+
+        {/* Logo */}
+
         
-        <Link href={isAfaqPlus ? "/afaq-plus" : "/"} className="navbar-logo">
+        <Link href={isAfaqPlus ? "/afaqplus" : "/"} className="navbar-logo">
           <Image 
             src={isAfaqPlus ? afaqPlus_logo : logo} 
             alt="logo" 
             className="logo-image"
             width={120}
             height={40}
+            priority
           /> 
         </Link>
       </div>

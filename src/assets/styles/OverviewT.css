@@ -31,6 +31,76 @@
     padding-bottom: 5rem;
 }
 
+.one-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 0.5px solid #00000012;
+    margin-bottom: 4rem;
+    border-radius: 20px;
+    width: 260px;
+    overflow: hidden;
+    /* Important for Next.js Image with fill */
+}
+
+.teacher-course {
+    font-family: 'Poppins';
+    font-weight: 275;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+
+}
+
+.teacher-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    /* default desktop height */
+}
+
+.white-bottom {
+    position: relative;
+    background-color: white;
+    width: 100%;
+    height: 120px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid #00000012;
+}
+
+.teacher-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    color: #606060;
+
+
+}
+
+.module {
+    background: #37AEE2;
+    position: absolute;
+    top: -2.95rem;
+    left: -0.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    padding: 0.6rem 1.8rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: white;
+}
+
 /* ------------------- Responsive ------------------- */
 @media (max-width: 1280px) {
     .big-overview {
@@ -104,7 +174,8 @@
 
 .all-teachers1 {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+
     /* ✅ pour que ça passe à la ligne */
     justify-content: center;
     gap: 2rem;
@@ -148,8 +219,8 @@
     }
 }
 
-.no-courses{
-        font-family: 'Poppins';
+.no-courses {
+    font-family: 'Poppins';
     font-weight: 400;
     font-size: 22px;
 
@@ -171,5 +242,81 @@
 
     .hr-ov2 {
         width: 95%;
+    }
+}
+
+/* Desktop reste identique */
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 1280px) {
+    .big-overview {
+        font-size: 48px;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .big-overview {
+        font-size: 40px;
+    }
+
+    .info-courses {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .one-card {
+        width: 220px;
+        /* un peu plus petit */
+    }
+}
+
+@media (max-width: 768px) {
+    .big-overview {
+        font-size: 32px;
+    }
+
+    .one-card {
+        flex: 1 1 calc(50% - 1rem);
+        /* 2 cartes par ligne */
+        max-width: 45%;
+    }
+
+    .teacher-img-wrapper {
+        height: 200px;
+        /* réduit sur tablette */
+    }
+}
+
+@media (max-width: 480px) {
+    .big-overview {
+        font-size: 28px;
+    }
+
+    .one-card {
+        flex: 1 1 100%;
+        /* 1 carte par ligne */
+        max-width: 100%;
+    }
+
+    .teacher-img-wrapper {
+        height: 200px;
+        /* image auto-ajustée */
+    }
+}
+/* ✅ 2 cards per row on tablets (landscape) */
+@media (max-width: 1024px) and (orientation: landscape) {
+     .one-card {
+        flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
+        max-width: 48%;
+    }
+}
+
+/* ✅ 1 card per row on tablets (portrait) */
+@media (max-width: 1024px) and (orientation: portrait) {
+
+     .one-card {
+        flex: 1 1 100%; /* 1 card per row */
+        max-width: 100%;
     }
 }

@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import { useLocation  } from 'react-router-dom';
-import '../../assets/styles/Pagination.css'
+"use client";
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import '../../assets/styles/Pagination.css';
 
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
   const getPagination = () => {
     if (totalPages <= 5) {
       return [...Array(totalPages).keys()].map((n) => n + 1);
@@ -13,14 +19,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     return [1, '...', currentPage, '...', totalPages];
   };
 
-  
-    const location = useLocation();
-    const isTeachers = location.pathname === "/teachers";
-    const isprofile = location.pathname.includes("/profile");
+  const pathname = usePathname();
+  const isTeachers = pathname === "/teachers";
+  const isProfile = pathname.includes("/profile");
 
   return (
-    <div className={`pagination 
-        ${isTeachers || isprofile ? 'pagination-teachers' : ''} `}>
+    <div className={`pagination ${isTeachers || isProfile ? 'pagination-teachers' : ''}`}>
       <button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1}>
         {'<'}
       </button>
