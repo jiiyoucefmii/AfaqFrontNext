@@ -28,14 +28,14 @@ export default function VerifyEmailPage() {
   const [isResending, setIsResending] = useState(false)
   const router = useRouter()
 
-  useEffect(() => {
-    const email = localStorage.getItem("verificationEmail")
-    if (email) {
-      setFormData((prev) => ({ ...prev, email }))
-    } else {
-      router.push("/auth/signup")
-    }
-  }, [router])
+ useEffect(() => {
+  const email = localStorage.getItem("verificationEmail")
+  if (email) {
+    setFormData((prev) => ({ ...prev, email }))
+  } else if (process.env.NODE_ENV === "production") {
+    router.push("/auth/signup")
+  }
+}, [router])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target

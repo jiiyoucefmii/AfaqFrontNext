@@ -5,7 +5,7 @@ import Link from "next/link"
 import AuthLayout from "../../../components/auth/AuthLayout"
 import InputField from "../../../components/ui/InputField"
 import Button from "../../../components/ui/Button"
-import "../../../assets/styles/Auth.css"
+// Remove CSS import - handle in globals.css or use CSS modules
 
 interface FormErrors {
   email?: string
@@ -38,7 +38,7 @@ export default function ForgotPasswordPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (!validateForm()) return
@@ -69,7 +69,11 @@ export default function ForgotPasswordPage() {
 
   if (isSuccess) {
     return (
-      <AuthLayout title="تم إرسال الرابط" subtitle="تحقق من بريدك الإلكتروني" pageType="forgot-password">
+      <AuthLayout 
+        title="تم إرسال الرابط" 
+        subtitle="تحقق من بريدك الإلكتروني" 
+        pageType="forgot-password"
+      >
         <div className="success-message">
           <div className="success-icon">✓</div>
           <h3>تم إرسال رابط إعادة تعيين كلمة المرور</h3>
@@ -110,7 +114,12 @@ export default function ForgotPasswordPage() {
           error={errors.email}
         />
 
-        <Button type="submit" isLoading={isLoading} className="auth-submit-btn">
+        <Button 
+          type="submit" 
+          isLoading={isLoading} 
+          className="auth-submit-btn"
+          disabled={isLoading}
+        >
           {isLoading ? "جاري الإرسال..." : "إرسال رابط إعادة التعيين"}
         </Button>
 
