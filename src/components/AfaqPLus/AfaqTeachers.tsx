@@ -26,11 +26,14 @@ const AfaqTeachers: React.FC = () => {
       <div className="all-teachers">
         {displayedTeachers.map((teacher: Teacher) => (
           <div className="one-card" key={teacher.id}>
-            <Image
-              src={teacher.image}
-              alt={teacher.name}
-              className="teacher-img"
-            />
+            <div className="teacher-img-wrapper">
+              <Image
+                src={teacher.image}
+                alt={teacher.name}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
             <div className="white-bottom">
               <p className="teacher-name">{teacher.name}</p>
               <p className="module">{teacher.module}</p>

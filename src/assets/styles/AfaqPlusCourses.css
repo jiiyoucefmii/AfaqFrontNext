@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Desktop 4 colonnes */
   grid-template-rows: repeat(2, auto);
-  padding: 0 2rem;
+  padding: 0 2rem 0 3rem;
   gap: 1rem;
 }
 

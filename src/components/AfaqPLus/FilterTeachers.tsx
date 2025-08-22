@@ -12,7 +12,8 @@ interface FilterTeachersProps {
 }
 
 const FilterTeachers: React.FC<FilterTeachersProps> = ({ type }) => {
-  const selectedLogo = type === 'plus' ? logoAfaqPlus : logoAfaq;
+  const isplus = type === 'plus';
+  const selectedLogo = isplus ? logoAfaqPlus : logoAfaq;
 
   return (
     <div className='filter-teachers'>
@@ -28,15 +29,19 @@ const FilterTeachers: React.FC<FilterTeachersProps> = ({ type }) => {
       </form>
 
       <div className="horizontal-line1"></div>
-      <p>اساتذة</p>
+      <div className="logo-txt">
+        <p>اساتذة</p>
       <div className="logo-wrapper">
         <Image
           src={selectedLogo}
           alt="logo"
-          
+          className={`
+        ${isplus ? 'afaqplus-logo' : ''} `}
           priority
         />
       </div>
+      </div>
+      
     </div>
   );
 };
