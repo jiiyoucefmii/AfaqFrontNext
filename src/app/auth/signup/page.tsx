@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, FormEvent, ChangeEvent } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { FaGraduationCap, FaBook, FaMapMarkerAlt } from "react-icons/fa"
@@ -10,8 +10,51 @@ import Button from "../../../components/ui/Button"
 import SelectField from "../../../components/ui/SelectField"
 import "../../../assets/styles/Auth.css"
 
+// Define the shape of form data
+interface FormData {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  parentPhone: string
+  wilaya: string
+  educationLevel: string
+  studyField: string
+  password: string
+  confirmPassword: string
+  agreeToTerms: boolean
+}
+
+// Define the shape of errors
+interface Errors {
+  firstName?: string
+  lastName?: string
+  email?: string
+  phone?: string
+  parentPhone?: string
+  wilaya?: string
+  educationLevel?: string
+  studyField?: string
+  password?: string
+  confirmPassword?: string
+  agreeToTerms?: string
+  submit?: string
+}
+
+// Define the shape of select options
+interface SelectOption {
+  value: string
+  label: string
+}
+
+// Define the shape of the API response
+interface ApiResponse {
+  success: boolean
+  message?: string
+}
+
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -24,12 +67,12 @@ export default function SignupPage() {
     confirmPassword: "",
     agreeToTerms: false,
   })
-  const [errors, setErrors] = useState({})
-  const [isLoading, setIsLoading] = useState(false)
+  const [errors, setErrors] = useState<Errors>({})
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const router = useRouter()
 
   // Education levels options in Arabic
-  const educationLevels = [
+  const educationLevels: SelectOption[] = [
     { value: "ثانوي_1", label: "ثانوي السنة الأولى" },
     { value: "ثانوي_2", label: "ثانوي السنة الثانية" },
     { value: "ثانوي_3_باك", label: "ثانوي السنة الثالثة (باك)" },
@@ -37,7 +80,7 @@ export default function SignupPage() {
   ]
 
   // Study fields options
-  const studyFields = [
+  const studyFields: SelectOption[] = [
     { value: "رياضيات", label: "الرياضيات" },
     { value: "تقني_رياضي", label: "تقني رياضي" },
     { value: "علوم_تجريبية", label: "علوم تجريبية" },
@@ -48,7 +91,7 @@ export default function SignupPage() {
   ]
 
   // Algerian Wilayas (58 provinces)
-  const wilayas = [
+  const wilayas: SelectOption[] = [
     { value: "01", label: "01 - أدرار" },
     { value: "02", label: "02 - الشلف" },
     { value: "03", label: "03 - الأغواط" },
@@ -109,14 +152,21 @@ export default function SignupPage() {
     { value: "58", label: "58 - المنيعة" },
   ]
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target
+  // Fixed handleChange function with proper type handling
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const target = e.target as HTMLInputElement | HTMLSelectElement
+    const { name, value, type } = target
+    
+    // Type assertion for checkbox handling
+    const checked = (target as HTMLInputElement).checked
+    
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }))
+    
     // Clear error when user starts typing
-    if (errors[name]) {
+    if (errors[name as keyof Errors]) {
       setErrors((prev) => ({
         ...prev,
         [name]: "",
@@ -124,8 +174,8 @@ export default function SignupPage() {
     }
   }
 
-  const validateForm = () => {
-    const newErrors = {}
+  const validateForm = (): boolean => {
+    const newErrors: Errors = {}
 
     // Required fields validation
     if (!formData.firstName.trim()) newErrors.firstName = "الاسم الأول مطلوب"
@@ -136,7 +186,9 @@ export default function SignupPage() {
       newErrors.email = "البريد الإلكتروني غير صحيح"
     }
     if (!formData.phone.trim()) newErrors.phone = "رقم الهاتف مطلوب"
+    else if (!/^\+?\d{9,12}$/.test(formData.phone)) newErrors.phone = "رقم الهاتف غير صحيح"
     if (!formData.parentPhone.trim()) newErrors.parentPhone = "رقم هاتف ولي الأمر مطلوب"
+    else if (!/^\+?\d{9,12}$/.test(formData.parentPhone)) newErrors.parentPhone = "رقم هاتف ولي الأمر غير صحيح"
     if (!formData.wilaya) newErrors.wilaya = "الولاية مطلوبة"
     if (!formData.educationLevel) newErrors.educationLevel = "المستوى التعليمي مطلوب"
     if (!formData.studyField) newErrors.studyField = "التخصص مطلوب"
@@ -158,7 +210,7 @@ export default function SignupPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (!validateForm()) return
@@ -184,7 +236,7 @@ export default function SignupPage() {
         }),
       })
 
-      const data = await response.json()
+      const data: ApiResponse = await response.json()
 
       if (response.ok) {
         // Store email for verification
@@ -205,7 +257,7 @@ export default function SignupPage() {
     <AuthLayout
       title="إنشاء حساب جديد"
       subtitle="انضم إلينا وابدأ رحلتك التعليمية"
-      pageType="signup"
+      pageType="logout"
     >
       <form onSubmit={handleSubmit} className="auth-form signup-form">
         {errors.submit && <div className="error-message submit-error">{errors.submit}</div>}
@@ -294,7 +346,7 @@ export default function SignupPage() {
             onChange={handleChange}
             options={studyFields}
             error={errors.studyField}
-            icon={<FaBook />}
+            
           />
         </div>
 
@@ -308,7 +360,6 @@ export default function SignupPage() {
             value={formData.password}
             onChange={handleChange}
             error={errors.password}
-            showPasswordToggle
           />
           <InputField
             type="password"
@@ -317,7 +368,6 @@ export default function SignupPage() {
             value={formData.confirmPassword}
             onChange={handleChange}
             error={errors.confirmPassword}
-            showPasswordToggle
           />
         </div>
 

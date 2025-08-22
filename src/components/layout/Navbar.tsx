@@ -67,18 +67,20 @@ const Navbar = () => {
       <div className="navbar-container">
         {/* Auth Buttons */}
         <div className="auth-buttons">
-          <Link href="/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`}>
+          <Link href="/auth/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`}>
             تسجيل الدخول
           </Link>
-          <Link href="/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`}>
+          <Link href="/auth/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`}>
             إنشاء حساب
           </Link>
         </div>
+
 
         {/* Mobile menu icon */}
         <div className="menu-icon" onClick={toggleMenu}>
           <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
+
         <HamburgerIcon 
           isOpen={isMenuOpen} 
           onClick={toggleMenu}
@@ -122,10 +124,10 @@ const Navbar = () => {
           
           {/* Mobile Auth Buttons */}
           <div className="mobile-auth-buttons">
-            <Link href="/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`} onClick={closeMenu}>
+            <Link href="/auth/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`} onClick={closeMenu}>
               تسجيل الدخول
             </Link>
-            <Link href="/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`} onClick={closeMenu}>
+            <Link href="/auth/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`} onClick={closeMenu}>
               إنشاء حساب
             </Link>
           </div>
