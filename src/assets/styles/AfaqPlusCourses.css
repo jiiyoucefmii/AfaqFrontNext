@@ -131,6 +131,7 @@
   background-image: url(../images/title-rec.png);
   background-repeat: no-repeat;
   min-height: 50px;
+  min-width: 18rem;
 }
 
 .course-title p {
