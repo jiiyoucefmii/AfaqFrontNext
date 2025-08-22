@@ -35,24 +35,28 @@ const AfaqPlusCourses = () => {
         {displayedCourses.map((course) => (
           <div className="one-card" key={course.id}>
             <div className="image-wraper">
-                            <img src={course.image} alt="course" className="original-img" />
-                            <button
-                                onClick={() => {
-                                    setLikedCourses(prev =>
-                                        prev.includes(course.id)
-                                            ? prev.filter(id => id !== course.id)
-                                            : [...prev, course.id]
-                                    );
-                                }}
-                                className="like-button" >
-                                <img
-                                    src={likedCourses.includes(course.id) ? starFilled : starOutlined}
-                                    alt="like"
-                                    className="star-icon"
-                                />
-                            </button>
+              <Image
+                src={course.image}
+                alt={course.title}
+                className="original-img"
+                width={300}
+                height={200}
+                priority
+              />
+              <button
+                onClick={() => toggleLike(course.id)}
+                className="like-button"
+              >
+                <Image
+                  src={likedCourses.includes(course.id) ? starFilled : starOutlined}
+                  alt="like"
+                  width={24}
+                  height={24}
+                  className="star-icon"
 
-                        </div>
+                />
+              </button>
+            </div>
 
             <div className="course-title">
               <p>{course.title}</p>
