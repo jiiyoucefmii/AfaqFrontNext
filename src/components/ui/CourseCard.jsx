@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star, BookOpen, DollarSign } from 'lucide-react';
+import Image from 'next/image';
 import '../../assets/styles/CourseCard.css';
-import RocketIcon from '../../assets/images/Rocket.svg';
 
 export default function CourseCard({
   title = "دورة المراجعة النهائية رياضيات",
@@ -45,23 +45,21 @@ export default function CourseCard({
         </p>
         
         <div className="afaq-course-card-info">
-          <div className="afaq-course-card-info-item">
-            <BookOpen className="afaq-course-card-chapters-icon" />
-            <span className="afaq-course-card-chapters-text">{chapters} فصل</span>
+          <div className="afaq-course-card-chapters">
+            <Image src="/images/Rocket.svg" alt="Rocket" width={16} height={16} />
+            <span>{chapters} فصل</span>
           </div>
-          <div className="afaq-course-card-info-item">
-            <DollarSign className="afaq-course-card-price-icon" />
-            <span className="afaq-course-card-price-text">{price}</span>
+          <div className="afaq-course-card-price">
+            <DollarSign size={16} />
+            <span>{price}</span>
           </div>
         </div>
         
         <button 
-          className="afaq-course-card-button"
+          className="afaq-course-card-enroll-btn"
           onClick={onEnroll}
-          type="button"
         >
-          ابدأ الآن
-          <img src={RocketIcon} alt="Rocket" className="afaq-course-card-button-icon" />
+          التسجيل في الدورة
         </button>
       </div>
     </div>

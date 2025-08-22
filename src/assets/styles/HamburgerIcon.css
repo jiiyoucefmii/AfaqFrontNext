@@ -1,0 +1,61 @@
+.hamburger-button {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+
+.hamburger-line {
+  width: 30px;
+  height: 3px;
+  background-color: #000000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animation when menu is open */
+.hamburger-button.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger-button.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.hamburger-button.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* AFAQ+ theme colors */
+.hamburger-button.afaqplus .hamburger-line {
+  background-color: white;
+}
+
+.hamburger-button.afaqplus.open .hamburger-line {
+  background-color: white;
+}
+
+/* Show on mobile */
+@media screen and (max-width: 960px) {
+  .hamburger-button {
+    display: flex;
+  }
+}
+
+/* Hover effects */
+.hamburger-button:hover .hamburger-line {
+  background-color: var(--primary-color, #FFCC00);
+}
+
+.hamburger-button.afaqplus:hover .hamburger-line {
+  background-color: #03FFF7;
+}

@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation'
 import '@/assets/styles/Navbar.css'
 import logo from '@/assets/images/LogoFrameBlack.svg'
 import afaqPlus_logo from '@/assets/images/afaqplus_logo.svg'
+import HamburgerIcon from '../ui/HamburgerIcon'
+import '../../assets/styles/Navbar.css'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,9 +25,39 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement
+      if (isMenuOpen && !target.closest('.nav-menu') && !target.closest('.hamburger-button')) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isMenuOpen])
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isMenuOpen])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
+  }
+
+  const closeMenu = () => {
+    setIsMenuOpen(false)
   }
 
   return (
@@ -47,43 +79,62 @@ const Navbar = () => {
         <div className="menu-icon" onClick={toggleMenu}>
           <i className={isMenuOpen ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
+        <HamburgerIcon 
+          isOpen={isMenuOpen} 
+          onClick={toggleMenu}
+          className={isAfaqPlus ? 'afaqplus' : ''}
+        />
 
         {/* Nav links */}
         <ul className={isMenuOpen ? 'nav-menu active' : 'nav-menu'}>
           <li className="nav-item">
-            <Link href="/" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <Link href="/" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               الرئيسية
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/afaqplus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+
+
+            <Link href="/afaq-plus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               AFAQ+
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/courses" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <Link href="/courses" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               الدورات
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/teachers" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <Link href="/teachers" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               أساتذتنا
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/about" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <Link href="/about" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               عن المنصة
             </Link>
           </li>
           <li className="nav-item">
-            <Link href="/contact" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={() => setIsMenuOpen(false)}>
+            <Link href="/contact" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               تواصلو معنا
             </Link>
           </li>
+          
+          {/* Mobile Auth Buttons */}
+          <div className="mobile-auth-buttons">
+            <Link href="/login" className={`register-button ${isAfaqPlus ? "afaqplus-register-button" : ""}`} onClick={closeMenu}>
+              تسجيل الدخول
+            </Link>
+            <Link href="/signup" className={`login-button ${isAfaqPlus ? "afaqplus-login-button" : ""}`} onClick={closeMenu}>
+              إنشاء حساب
+            </Link>
+          </div>
         </ul>
 
         {/* Logo */}
-        <Link href={isAfaqPlus ? "/afaqplus" : "/"} className="navbar-logo">
+
+        
+        <Link href={isAfaqPlus ? "/afaq-plus" : "/"} className="navbar-logo">
           <Image 
             src={isAfaqPlus ? afaqPlus_logo : logo} 
             alt="logo" 
