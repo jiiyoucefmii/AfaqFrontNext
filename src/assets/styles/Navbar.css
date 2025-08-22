@@ -29,7 +29,11 @@
   color: #000;
 
 }
-
+.logo-image {
+  width: 160px !important;
+  height: 55px !important;
+  object-fit: contain;
+}
 
 .nav-menu {
   display: flex;
