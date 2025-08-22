@@ -29,14 +29,14 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
 
     return (
         <>
-            {/* Hamburger button */}
-            <button className="hamburger" onClick={toggleSidebar}>
-                &#9776;
+            {/* Bouton Hamburger / X */}
+            <button className={sidebarOpen ? "exxi" : "hamburger"} onClick={toggleSidebar}>
+                {sidebarOpen ? "✖" : "☰"}
             </button>
 
             <div className="sidenav">
                 <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-                    <div className="top">
+                    <div className={`top ${sidebarOpen ? 'barOpen' : ''}`}>
                         <Link href="/">
                             <Image src={logo} alt="Logo" className='logo-afaq' />
                         </Link>
@@ -48,25 +48,25 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
                             <li className={`nav-icon ${!isOverview && !isSettings && !isQuiz ? "active" : ""}`}>
                                 <Link href="/profile-teacher">
                                     <ProfileImg color={!isOverview && !isSettings && !isQuiz ? "#FFC800" : "white"} />
-                                    <p style={{ color: !isOverview && !isSettings && !isQuiz ? "#FFC800" : "white" }}>Profile</p>
+                                    <p style={{ color: !isOverview && !isSettings && !isQuiz ? "#FFC800" : "white" }}>الملف الشخصي</p>
                                 </Link>
                             </li>
                             <li className={`nav-icon ${isOverview ? "active" : ""}`}>
                                 <Link href="/profile-teacher/overview-teacher">
                                     <OverviewImg color={isOverview ? "#FFC800" : "white"} />
-                                    <p style={{ color: isOverview ? "#FFC800" : "white" }}>Overview & Statistics</p>
+                                    <p style={{ color: isOverview ? "#FFC800" : "white" }}>نظرة عامة والإحصائيات</p>
                                 </Link>
                             </li>
                             <li className={`nav-icon ${isQuiz ? "active" : ""}`}>
                                 <Link href="/profile-teacher/quiz-teacher">
                                     <QuizImg color={isQuiz ? "#FFC800" : "white"} />
-                                    <p style={{ color: isQuiz ? "#FFC800" : "white" }}>Quizes</p>
+                                    <p style={{ color: isQuiz ? "#FFC800" : "white" }}>الاختبارات</p>
                                 </Link>
                             </li>
                             <li className={`nav-icon ${isSettings ? "active" : ""}`}>
                                 <Link href="/profile-teacher/settings-teacher">
                                     <SettingsImg color={isSettings ? "#FFC800" : "white"} />
-                                    <p style={{ color: isSettings ? "#FFC800" : "white" }}>Settings</p>
+                                    <p style={{ color: isSettings ? "#FFC800" : "white" }}>الإعدادات</p>
                                 </Link>
                             </li>
                         </ul>
@@ -74,7 +74,7 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
                     <div className="log-out">
                         <Link href="/profile">
                             <LogOut color="white" />
-                            <p>Log out</p>
+                            <p>تسجيل الخروج</p>
                         </Link>
                     </div>
                 </aside>

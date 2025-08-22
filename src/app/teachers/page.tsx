@@ -13,7 +13,6 @@ const Teachers: React.FC = () => {
         <h2>نخبةٌ اساتذة الجزائر</h2>
         <p>الخبير في كل شيء كان مبتدئًا في يومٍ ما</p>
       </div>
-
       <FilterTeachers />
       <AfaqTeachers />
 
