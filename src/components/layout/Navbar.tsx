@@ -95,7 +95,7 @@ const Navbar = () => {
           <li className="nav-item">
 
 
-            <Link href="/afaq-plus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
+            <Link href="/afaqplus" className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} onClick={closeMenu}>
               AFAQ+
             </Link>
           </li>
@@ -134,7 +134,7 @@ const Navbar = () => {
         {/* Logo */}
 
         
-        <Link href={isAfaqPlus ? "/afaq-plus" : "/"} className="navbar-logo">
+        <Link href={isAfaqPlus ? "/afaqplus" : "/"} className="navbar-logo">
           <Image 
             src={isAfaqPlus ? afaqPlus_logo : logo} 
             alt="logo" 
