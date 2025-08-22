@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image'
+import yellowHeroImage from '../../assets/images/yellowHero.png'
+import mockupPCImage from '../../assets/images/MockupPC.png'
 
 const HeroSection: React.FC = () => {
   const handleVideoClick = () => {
@@ -22,7 +24,7 @@ const HeroSection: React.FC = () => {
         </div>
         <div className="hero-image">
           <Image 
-            src="/images/yellowHero.png"
+            src={yellowHeroImage}
             alt="آفاق التعليمية" 
             className="yellow-hero"
             width={1200}
@@ -42,7 +44,7 @@ const HeroSection: React.FC = () => {
         <div className="mockup-container">
           <div className="mockup-image">
             <Image 
-              src="/images/MockupPC.png"
+              src={mockupPCImage}
               alt="جهاز كمبيوتر يعرض منصة آفاق" 
               className="mockup-pc"
               width={719}
