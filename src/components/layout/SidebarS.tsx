@@ -16,8 +16,8 @@ interface SidenavProps {
 
 const SidenavS: React.FC<SidenavProps> = ({ children }) => {
     const pathname = usePathname();
-    const isOverview = pathname.includes("/overview");
-    const isSettings = pathname.includes("/settings");
+    const isOverview = pathname.includes("/OverviewS");
+    const isSettings = pathname.includes("/SettingsS");
     
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
