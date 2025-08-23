@@ -21,7 +21,7 @@ const coursesAfaqPP: Course[] = [
     title: "AI Prototyping 101",
     chapters: 10,
     price: 2500,
-    category: "science",
+    category: "Web Development",
     level: "beginner",
     duration: "short",
   },
