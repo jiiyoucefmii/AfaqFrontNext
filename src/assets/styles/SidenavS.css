@@ -123,7 +123,7 @@ a {
 }
 
 /* Hamburger for mobile */
-.hamburger {
+.hamburger, .exxi {
     display: none;
     position: fixed;
     top: 1rem;
@@ -132,10 +132,12 @@ a {
     background: none;
     border: none;
     font-size: 2rem;
-    color: rgba(1, 6, 53, 0.7);
+    color: #000000;
     cursor: pointer;
 }
-
+.exxi{
+    color: #FFCC00;
+}
 /* ------------------- Responsive ------------------- */
 @media (max-width: 1024px) {
     .sidebar {
@@ -160,7 +162,7 @@ a {
 }
 
 @media (max-width: 768px) {
-    .hamburger {
+    .hamburger, .exxi {
         display: block;
     }
 
@@ -216,24 +218,32 @@ a {
     }
 }
 
+.barOpen{
+    margin-top: 3rem;
+}
+
 /* Hamburger */
-.hamburger {
+.hamburger, .exxi {
     display: none;
     position: fixed;
     top: 1rem;
     left: 1rem;
     z-index: 1100;
     font-size: 2rem;
-    color: rgba(1, 6, 53, 0.7);
+    color: #000000;
     background: none;
     border: none;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
+.exxi{
+    color: #FFCC00;
+}
+
 /* Sidebar hidden on mobile */
 @media (max-width: 768px) {
-    .hamburger {
+    .hamburger,.exxi {
         display: block;
     }
 
@@ -261,7 +271,7 @@ a {
 
 /* Medium screens: 1024px and below */
 @media (max-width: 1024px) {
-    .hamburger {
+    .hamburger,.exxi {
         display: block;
     }
 

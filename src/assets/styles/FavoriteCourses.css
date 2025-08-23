@@ -1,0 +1,203 @@
+.favorite-courses-section {
+  margin: 3rem 0;
+  padding: 0 1rem;
+}
+
+.courses-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.courses-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 30px;
+  color: #222222;
+  margin-bottom: 1rem;
+}
+
+.courses-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #777777;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.courses-divider {
+  width: 80%;
+  height: 1px;
+  background-color: #00052B;
+  border: none;
+  margin: 0 auto;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-card {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.like-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.like-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
+}
+
+.like-button.liked {
+  background: rgba(255, 193, 7, 0.9);
+}
+
+.course-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+}
+
+.course-progress {
+  background: #f8f9fa;
+  padding: 15px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .courses-title {
+    font-size: 28px;
+  }
+
+  .courses-subtitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favorite-courses-section {
+    margin: 2rem 0;
+    padding: 0 0.5rem;
+  }
+
+  .courses-header {
+    margin-bottom: 2rem;
+  }
+
+  .courses-title {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .courses-subtitle {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    max-width: 100%;
+  }
+
+  .card-image-container {
+    height: 180px;
+  }
+
+  .courses-divider {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-title {
+    font-size: 22px;
+  }
+
+  .courses-subtitle {
+    font-size: 14px;
+  }
+
+  .card-image-container {
+    height: 160px;
+  }
+
+  .course-badge {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .course-progress {
+    padding: 12px 15px;
+    font-size: 15px;
+  }
+
+  .courses-divider {
+    width: 95%;
+  }
+}

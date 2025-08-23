@@ -16,51 +16,51 @@ interface SidenavProps {
 
 const SidenavS: React.FC<SidenavProps> = ({ children }) => {
     const pathname = usePathname();
+    
+    // Fixed: Single declaration of path checks using consistent patterns
     const isOverview = pathname.includes("/OverviewS");
     const isSettings = pathname.includes("/SettingsS");
+    const isProfile = !isOverview && !isSettings; // More readable
     
-
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
+    
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     }
-
+    
     return (
         <>
-            {/* Hamburger button */}
-            <button className="hamburger" onClick={toggleSidebar}>
-                &#9776;
+            <button className={sidebarOpen ? "exxi" : "hamburger"} onClick={toggleSidebar}>
+                {sidebarOpen ? "✖" : "☰"}
             </button>
-
+            
             <div className="sidenav">
                 <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
-                    <div className="top">
+                    <div className={`top ${sidebarOpen ? 'barOpen' : ''}`}>
                         <Link href="/">
                             <Image src={logo} alt="Logo" className='logo-afaq' />
                         </Link>
                         <hr className='hr-logo' />
                     </div>
-
+                    
                     <nav>
                         <ul className='barr'>
-                            <li className={`nav-icon ${!isOverview && !isSettings ? "active" : ""}`}>
+                            <li className={`nav-icon ${isProfile ? "active" : ""}`}>
                                 <Link href="/profile-student">
-                                    <ProfileImg color={!isOverview && !isSettings  ? "#FFC800" : "white"} />
-                                    <p style={{ color: !isOverview && !isSettings ? "#FFC800" : "white" }}>Profile</p>
+                                    <ProfileImg color={isProfile ? "#FFC800" : "white"} />
+                                    <p style={{ color: isProfile ? "#FFC800" : "white" }}>الملف الشخصي</p>
                                 </Link>
                             </li>
                             <li className={`nav-icon ${isOverview ? "active" : ""}`}>
                                 <Link href="/profile-student/OverviewS">
                                     <OverviewImg color={isOverview ? "#FFC800" : "white"} />
-                                    <p style={{ color: isOverview ? "#FFC800" : "white" }}>Overview & Statistics</p>
+                                    <p style={{ color: isOverview ? "#FFC800" : "white" }}>نظرة عامة والإحصائيات</p>
                                 </Link>
                             </li>
-  
                             <li className={`nav-icon ${isSettings ? "active" : ""}`}>
                                 <Link href="/profile-student/SettingsS">
                                     <SettingsImg color={isSettings ? "#FFC800" : "white"} />
-                                    <p style={{ color: isSettings ? "#FFC800" : "white" }}>Settings</p>
+                                    <p style={{ color: isSettings ? "#FFC800" : "white" }}>الإعدادات</p>
                                 </Link>
                             </li>
                         </ul>
@@ -68,11 +68,11 @@ const SidenavS: React.FC<SidenavProps> = ({ children }) => {
                     <div className="log-out">
                         <Link href="/profile-student/Logout">
                             <LogOut color="white" />
-                            <p>Log out</p>
+                            <p>تسجيل الخروج</p>
                         </Link>
                     </div>
                 </aside>
-
+                
                 <main className="content">
                     {children}
                 </main>
@@ -81,4 +81,4 @@ const SidenavS: React.FC<SidenavProps> = ({ children }) => {
     )
 }
 
-export default SidenavS
+export default SidenavS;
