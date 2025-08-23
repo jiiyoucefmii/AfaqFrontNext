@@ -23,5 +23,8 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/AfaqPLus/AfaqPlusCourses.tsx", "src/components/ui/CardOver.tsx", "src/components/ui/CourseCard.jsx"],
+
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/AfaqPLus/AfaqPlusCourses.tsx", "src/components/Profile/SidenavS.jsx"],
+
   "exclude": ["node_modules"]
 }
