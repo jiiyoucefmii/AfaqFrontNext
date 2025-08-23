@@ -22,6 +22,26 @@
 
 }
 
+.add-quiz:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, #E6B800, #FFCC00);
+}
+
+/* Active/click effect */
+.add-quiz:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Focus style for accessibility */
+.add-quiz:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,204,0,0.5);
+}
+
+
+
 .tc-name {
     font-family: 'Poppins';
     font-weight: 500;

@@ -13,6 +13,7 @@ import logo from '../../assets/images/LogoW.svg'
 import VideoIcon from '../icons/VideoIcon'
 import ChatbotIcon from '../icons/ChatbotIcon'
 import backarr from '../../assets/images/gobackarr.svg'
+import { useRouter } from 'next/navigation';
 
 interface SidenavProps {
     children: ReactNode;
@@ -22,12 +23,17 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
     const pathname = usePathname();
     const isChatbot = pathname.includes("/chatbot");
     const isCourseQuiz = pathname.includes("/course-quiz");
+    const router = useRouter();
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
     }
+
+    const handleCancel = (): void => {
+    router.back(); //previous page
+  };
 
     return (
         <>
@@ -44,6 +50,7 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
                         </Link>
                         <hr className='hr-logo' />
                     </div>
+
 
                     <nav>
                         <ul className='barr'>
@@ -69,7 +76,8 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
                         </ul>
                     </nav>
                    
-                        <Link href="/profile" className="go-back">
+                        <Link href="/profile" className="go-back"  onClick={handleCancel}
+>
                             <Image src={backarr} alt={"back"} />
                            <p>الرجوع</p>
                         </Link>

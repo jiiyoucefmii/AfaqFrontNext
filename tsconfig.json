@@ -34,6 +34,6 @@
     "src/components/ui/CourseCard.jsx",
  "src/app/course-reader/course-quiz",
 "src/components/Profile/SidenavS.jsx"
-  ],    
+, "src/app/course-reader/course-quiz"  ],    
   "exclude": ["node_modules"]
 }

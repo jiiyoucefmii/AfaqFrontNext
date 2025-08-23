@@ -8,11 +8,11 @@ const SettingsT: React.FC = () => {
   const router = useRouter();
 
   const handleChangePassword = (): void => {
-    router.push('ChangePassword');
+    router.push('ChangePasswordT');
   };
 
   const handleDeleteAccount = (): void => {
-    router.push('DeleteAccount'); // Navigate to delete account page
+    router.push('DeleteAccountT'); // Navigate to delete account page
   };
 
   const handleDeviceClick = (deviceName: string): void => {

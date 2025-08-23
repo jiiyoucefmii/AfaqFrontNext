@@ -21,7 +21,8 @@ const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPage
 
   const pathname = usePathname();
   const isTeachers = pathname === "/teachers";
-  const isProfile = pathname.includes("/profile");
+  const isProfile = pathname.includes("/profile") || pathname.includes("/course-reader");
+  
 
   return (
     <div className={`pagination ${isTeachers || isProfile ? 'pagination-teachers' : ''}`}>
