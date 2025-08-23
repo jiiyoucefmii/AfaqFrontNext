@@ -10,6 +10,7 @@ interface OnequizProps {
   moy: number;
 }
 
+
 const Onequiz: React.FC<OnequizProps> = ({ name, numQst, numStudents, moy }) => {
   return (
     <div className='one-quiz'>

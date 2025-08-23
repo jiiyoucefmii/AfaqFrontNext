@@ -73,6 +73,7 @@ const AddQuiz: React.FC = () => {
               <option value="energy">الطاقة والشغل</option>
             </select>
           </div>
+          
         </form>
       </div>
 

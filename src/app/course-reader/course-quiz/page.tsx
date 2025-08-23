@@ -247,3 +247,5 @@ const CourseQuiz = () => {
 };
 
 export default CourseQuiz;
+
+

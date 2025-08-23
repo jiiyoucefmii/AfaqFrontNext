@@ -5,6 +5,8 @@
   padding: 1.5rem;
   background-color: white;
   direction: rtl;
+  overflow-x: auto;
+  padding-top: 3rem;
 }
 
 .profile-header {
@@ -241,4 +243,23 @@
 }
 main {
   flex: 1;
+}
+
+
+@media (max-width: 768px) {
+  .profile-layout {
+    flex-direction: column; /* Stack sidebar and main vertically */
+  }
+
+  .sidebar {
+    width: 100%; /* Make sidebar full-width on small screens */
+  }
+
+  main {
+    width: 100%; /* Ensure main content takes full width */
+  }
+
+  .profile-container {
+    padding: 3rem; /* Reduce padding for smaller screens */
+  }
 }

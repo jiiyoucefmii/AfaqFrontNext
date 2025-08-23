@@ -222,3 +222,64 @@
   text-align: center;
   color: #FF6161;
 }
+/* Delete Quiz Button */
+.delete-quiz-container {
+  display: flex;
+  justify-content: center; /* button aligned to the right */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.delete-quiz-btn {
+  background-color: #FF6161;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.bombl{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.delete-quiz-btn:hover {
+  background-color: #FF3333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Small screens responsiveness */
+@media (max-width: 768px) {
+  .delete-quiz-container {
+    justify-content: center; /* center on mobile */
+  }
+
+  .delete-quiz-btn {
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .delete-quiz-btn {
+    font-size: 13px;
+    padding: 0.4rem 0.8rem;
+    width: 100%;
+  }
+}
+
+/* Empty state for quizzes */
+.no-quiz {
+  text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 20px;
+  color: #FF6161;
+  margin: 2rem 0;
+}

@@ -1,4 +1,3 @@
-/* CardOver.css */
 .one-quiz {
     background-color: #0B0238;
     width: 237px;
@@ -11,18 +10,27 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
-    transition: all 0.3s ease; /* smooth resize */
+    transition: all 0.3s ease; /* smooth resize & hover effects */
+    cursor: pointer; /* indicate interactivity */
 }
 
+/* Hover effect */
+.one-quiz:hover {
+    transform: translateY(-10px) scale(1.03); /* lift & slightly grow */
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3); /* soft shadow */
+    border-color: #FFD700; /* slightly brighter yellow on hover */
+}
+
+/* Card content */
 .name-course {
     font-family: 'Poppins';
     font-weight: 700;
-    font-style: Bold;
     font-size: 24px;
     line-height: 30px;
     letter-spacing: 0%;
     text-align: center;
     color: white;
+    transition: color 0.3s ease;
 }
 
 .infoo_Acourse {
@@ -33,9 +41,16 @@
     text-align: right;
     color: #FFCC00;
     direction: ltr;
+    transition: color 0.3s ease;
 }
 
-/* ✅ Responsive Design */
+/* Optional: change text color slightly on hover */
+.one-quiz:hover .name-course,
+.one-quiz:hover .infoo_Acourse {
+    color: #FFD700;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .one-quiz {
         width: 200px;
@@ -86,6 +101,45 @@
     .infoo_Acourse {
         font-size: 14px;
         line-height: 20px;
-        text-align: center; /* ✅ centré sur mobile */
+        text-align: center;
     }
+}
+
+.infoo_Acourse {
+    font-family: 'Poppins';
+    font-weight: 500; /* slightly bolder for readability */
+    font-size: 20px;
+    line-height: 30px;
+    text-align: right;
+    color: #FFCC00;
+    direction: ltr;
+    transition: all 0.3s ease;
+    position: relative; /* for decorative pseudo-elements */
+    padding-left: 10px; /* space for decorative element */
+}
+
+/* Add a small gold underline effect on hover */
+.infoo_Acourse::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+}
+
+.one-quiz:hover .infoo_Acourse::after {
+    width: 100%;
+}
+
+/* Optional: subtle text shadow for glow effect */
+.infoo_Acourse {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Optional: change color slightly on hover */
+.one-quiz:hover .infoo_Acourse {
+    color: #FFD700;
 }
