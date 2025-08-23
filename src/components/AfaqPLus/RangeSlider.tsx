@@ -1,20 +1,22 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import '../../assets/styles/RangeSlider.css';
 
-function RangeSlider() {
-  const [value, setValue] = useState<number>(2500); // valeur initiale
+interface RangeSliderProps {
+  value: [number, number];
+  onChange: (value: [number, number]) => void;
+  min?: number;
+  max?: number;
+}
 
-  const min = 0;
-  const max = 10000;
-
+const RangeSlider: React.FC<RangeSliderProps> = ({ value, onChange, min = 0, max = 10000 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(Number(event.target.value));
+    const newMax = Number(event.target.value);
+    onChange([min, newMax]);
   };
 
-  // calcule le pourcentage rempli
   const getBackgroundSize = () => {
-    const percent = ((value - min) / (max - min)) * 100;
+    const percent = ((value[1] - min) / (max - min)) * 100;
     return {
       background: `linear-gradient(to left, #03FFF7 ${percent}%, #ffffff ${percent}%)`
     };
@@ -27,13 +29,13 @@ function RangeSlider() {
         type="range"
         min={min}
         max={max}
-        value={value}
+        value={value[1]}
         onChange={handleChange}
         style={getBackgroundSize()}
       />
-      <p>{value} DA</p>
+      <p> {value[1]} DA</p>
     </div>
   );
-}
+};
 
 export default RangeSlider;

@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
   
   const pathname = usePathname();
   const router = useRouter();
-  const isAfaqPlus: boolean = pathname === "/afaq-plus";
+  const isAfaqPlus: boolean = pathname === "/afaqplus";
   
   // Mock user data for testing
   const mockUser: User = {
@@ -134,7 +134,7 @@ const Navbar: React.FC = () => {
             </li>
             <li className="nav-item">
               <Link 
-                href="/afaq-plus" 
+                href="/afaqplus" 
                 className={`nav-link ${isAfaqPlus ? "afaqplus-nav-link" : ""}`} 
                 onClick={handleMenuItemClick}
               >
@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
 
-          <Link href={isAfaqPlus ? "/afaq-plus" : "/"} className="navbar-logo">
+          <Link href={isAfaqPlus ? "/afaqplus" : "/"} className="navbar-logo">
             <img src={isAfaqPlus ? afaqPlus_logo : logo} alt="logo" className="logo-image" />
           </Link>
           
