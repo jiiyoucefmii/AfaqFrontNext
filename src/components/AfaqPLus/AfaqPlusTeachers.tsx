@@ -13,6 +13,7 @@ interface Teacher {
   module: string;
 }
 
+
 const AfaqPlusTeachers: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
