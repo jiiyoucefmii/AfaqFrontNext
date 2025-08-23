@@ -5,7 +5,7 @@
   overflow: hidden;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   width: 262px !important;
-  height: 392px !important;
+  height: 382px !important;
   display: flex;
   flex-direction: column;
 }
@@ -101,7 +101,7 @@
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: #4b5563;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   font-size: 0.875rem;
 }
 
@@ -111,6 +111,40 @@
   justify-content: space-between;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
+}
+
+.afaq-course-card-chapters {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.afaq-course-card-chapters svg {
+  width: 1rem;
+  height: 1rem;
+  color: #094EC5; /* afaq-blue */
+}
+
+.afaq-course-card-chapters span {
+  color: #094EC5; /* afaq-blue */
+  font-family: 'Poppins', sans-serif;
+}
+
+.afaq-course-card-price {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.afaq-course-card-price svg {
+  width: 1rem;
+  height: 1rem;
+  color: #00A61C; /* afaq-green */
+}
+
+.afaq-course-card-price span {
+  color: #00A61C; /* afaq-green */
+  font-family: 'Poppins', sans-serif;
 }
 
 .afaq-course-card-info-item {
@@ -141,6 +175,28 @@
   color: #00A61C;
   font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
+}
+
+.afaq-course-card-enroll-btn {
+  width: 100%;
+  margin-top: 0rem;
+  background: linear-gradient(to right, #fef3c7, #FFCC00);
+  color: #1f2937;
+  padding: 0.3rem;
+  border-radius: 0.375rem;
+  border: 1px solid #9ca3af;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.afaq-course-card-enroll-btn:hover {
+  opacity: 0.9;
 }
 
 .afaq-course-card-button {
