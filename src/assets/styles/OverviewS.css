@@ -1,0 +1,160 @@
+.overviewt {
+    direction: ltr;
+    padding: 2rem;
+}
+
+.big-overview {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 100%;
+    color: #343434;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.hr-ov {
+    width: 100%;
+    height: 2px;
+    background-color: #00052B;
+    border: none;
+    margin: 1rem 0;
+}
+
+.info-courses {
+    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    /* wrap cards */
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding-bottom: 5rem;
+}
+
+/* ------------------- Responsive ------------------- */
+@media (max-width: 1280px) {
+    .big-overview {
+        font-size: 48px;
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .big-overview {
+        font-size: 40px;
+    }
+
+    .info-courses {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .big-overview {
+        font-size: 32px;
+    }
+
+    .card-over {
+        flex: 1 1 calc(50% - 1rem);
+        /* 2 cartes par ligne */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .big-overview {
+
+        font-size: 28px;
+    }
+
+    .card-over {
+        flex: 1 1 100%;
+        /* 1 carte par ligne sur très petit écran */
+        max-width: 100%;
+    }
+}
+.my-courses {
+    font-family: 'Poppins';
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 30px;
+    color: #222222;
+    text-align: center;
+}
+
+.courses-over {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #777777;
+    text-align: center;
+}
+
+.hr-ov2 {
+    width: 80%;
+    height: 1px;
+    background-color: #00052B;
+    border: none;
+    margin: 1rem auto;
+    display: block;
+}
+
+.all-teachers1 {
+    display: flex;
+    flex-wrap: wrap; /* ✅ pour que ça passe à la ligne */
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+/* 📱 Petits écrans (tablettes et mobiles) */
+@media (max-width: 1024px) {
+    .my-courses {
+        font-size: 26px;
+    }
+
+    .courses-over {
+        font-size: 18px;
+    }
+
+    .all-teachers1 {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .my-courses {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .courses-over {
+        font-size: 16px;
+    }
+
+    .hr-ov2 {
+        width: 90%;
+    }
+
+    .all-teachers1 {
+        flex-direction: column; /* ✅ chaque card prend toute la largeur */
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-courses {
+        font-size: 20px;
+    }
+
+    .courses-over {
+        font-size: 14px;
+    }
+
+    .hr-ov2 {
+        width: 95%;
+    }
+}
