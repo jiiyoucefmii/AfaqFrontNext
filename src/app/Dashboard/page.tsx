@@ -2,9 +2,10 @@
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Search, Users, BookOpen, Upload, Check, X, Plus, Minus, Eye, Edit2, Trash2 } from 'lucide-react';
-import '@/assets/styles/Dashboard.css'; // Updated path assuming `paths` in tsconfig.json
+import '@/assets/styles/Dashboard.css'; // Regular dashboard styles
+import '@/assets/styles/DashboardAfaqPlus.css'; // AfaqPlus dashboard styles
 
-// Type definitions
+// Type definitions (same as before)
 interface Student {
   id: string;
   firstName: string;
@@ -60,41 +61,59 @@ interface NewCourse {
 }
 
 type TabType = 'overview' | 'students' | 'teachers' | 'courses' | 'upload' | 'requests';
+type DashboardType = 'regular' | 'afaqPlus';
 
 const AdminDashboard: React.FC = () => {
+  const [activeDashboard, setActiveDashboard] = useState<DashboardType>('regular');
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [studentSearch, setStudentSearch] = useState<string>('');
   const [courseSearch, setCourseSearch] = useState<string>('');
   const [teacherSearch, setTeacherSearch] = useState<string>('');
   const [requestSearch, setRequestSearch] = useState<string>('');
 
-  // Mock data - no database, purely in-memory
-  const [students] = useState<Student[]>([
+  // Separate data for Regular and AfaqPlus dashboards
+  const [regularStudents] = useState<Student[]>([
     { id: '1', firstName: 'Ahmed', lastName: 'Ben Salem', email: 'ahmed@email.com', phone: '0123456789', wilaya: 'Algiers', role: 'STUDENT' },
     { id: '2', firstName: 'Fatima', lastName: 'Mansouri', email: 'fatima@email.com', phone: '0123456790', wilaya: 'Oran', role: 'STUDENT' },
     { id: '3', firstName: 'Omar', lastName: 'Belkacem', email: 'omar@email.com', phone: '0123456791', wilaya: 'Constantine', role: 'STUDENT' }
   ]);
 
-  const [teachers] = useState<Teacher[]>([
+  const [afaqPlusStudents] = useState<Student[]>([
+    { id: 'P1', firstName: 'Sara', lastName: 'Zidane', email: 'sara@afaqplus.com', phone: '0123456792', wilaya: 'Blida', role: 'PREMIUM_STUDENT' },
+    { id: 'P2', firstName: 'Yassin', lastName: 'Khelfa', email: 'yassin@afaqplus.com', phone: '0123456793', wilaya: 'Tizi Ouzou', role: 'PREMIUM_STUDENT' }
+  ]);
+
+  const [regularTeachers] = useState<Teacher[]>([
     { id: '1', name: 'Dr. Amina Khelifi', description: 'Mathematics Professor', category: 'Mathematics' },
     { id: '2', name: 'Prof. Youcef Medjahed', description: 'Physics Instructor', category: 'Physics' },
     { id: '3', name: 'Dr. Nesrine Bouali', description: 'Computer Science Expert', category: 'Computer Science' }
   ]);
 
-  const [courses, setCourses] = useState<Course[]>([
+  const [afaqPlusTeachers] = useState<Teacher[]>([
+    { id: 'P1', name: 'Dr. Leila Amrani', description: 'Advanced Mathematics Expert', category: 'Mathematics' },
+    { id: 'P2', name: 'Prof. Karim Djebali', description: 'AI Specialist', category: 'Computer Science' }
+  ]);
+
+  const [regularCourses, setRegularCourses] = useState<Course[]>([
     { id: '1', title: 'Advanced Mathematics', price: 5000, chapters: [{ title: 'Algebra Basics', duration: '2h', isFree: true }, { title: 'Calculus', duration: '3h', isFree: false }], isPublished: true, teacher: 'Dr. Amina Khelifi', coverImage: '' },
     { id: '2', title: 'Physics Fundamentals', price: 4500, chapters: [{ title: 'Mechanics', duration: '2.5h', isFree: true }, { title: 'Thermodynamics', duration: '3h', isFree: false }], isPublished: true, teacher: 'Prof. Youcef Medjahed', coverImage: '' },
     { id: '3', title: 'Web Development', price: 6000, chapters: [{ title: 'HTML & CSS', duration: '4h', isFree: true }, { title: 'JavaScript', duration: '5h', isFree: false }], isPublished: false, teacher: 'Dr. Nesrine Bouali', coverImage: '' }
   ]);
 
-  const [requests, setRequests] = useState<Request[]>([
+  const [afaqPlusCourses, setAfaqPlusCourses] = useState<Course[]>([
+    { id: 'P1', title: 'AI for Beginners', price: 8000, chapters: [{ title: 'Intro to AI', duration: '3h', isFree: true }, { title: 'Machine Learning Basics', duration: '4h', isFree: false }], isPublished: true, teacher: 'Prof. Karim Djebali', coverImage: '' },
+    { id: 'P2', title: 'Advanced Calculus', price: 7000, chapters: [{ title: 'Limits', duration: '2h', isFree: true }, { title: 'Integrals', duration: '3h', isFree: false }], isPublished: false, teacher: 'Dr. Leila Amrani', coverImage: '' }
+  ]);
+
+  const [regularRequests, setRegularRequests] = useState<Request[]>([
     { id: '1', studentName: 'Ahmed Ben Salem', studentId: 'ST001', courseName: 'Advanced Mathematics', courseId: 'C001', status: 'PROCESSING', date: '2025-08-22', studentEmail: 'ahmed@email.com' },
     { id: '2', studentName: 'Fatima Mansouri', studentId: 'ST002', courseName: 'Physics Fundamentals', courseId: 'C002', status: 'PROCESSING', date: '2025-08-21', studentEmail: 'fatima@email.com' },
-    { id: '3', studentName: 'Omar Belkacem', studentId: 'ST003', courseName: 'Web Development', courseId: 'C003', status: 'PROCESSING', date: '2025-08-20', studentEmail: 'omar@email.com' },
-    { id: '4', studentName: 'Amina Kaddour', studentId: 'ST004', courseName: 'Advanced Mathematics', courseId: 'C001', status: 'PROCESSING', date: '2025-08-19', studentEmail: 'amina@email.com' },
-    { id: '5', studentName: 'Youcef Zemouri', studentId: 'ST005', courseName: 'Data Science', courseId: 'C004', status: 'PROCESSING', date: '2025-08-18', studentEmail: 'youcef@email.com' },
-    { id: '6', studentName: 'Nesrine Boudjema', studentId: 'ST006', courseName: 'Physics Fundamentals', courseId: 'C002', status: 'ACCEPTED', date: '2025-08-17', studentEmail: 'nesrine@email.com' },
-    { id: '7', studentName: 'Karim Benali', studentId: 'ST007', courseName: 'Web Development', courseId: 'C003', status: 'REJECTED', date: '2025-08-16', studentEmail: 'karim@email.com' }
+    { id: '3', studentName: 'Omar Belkacem', studentId: 'ST003', courseName: 'Web Development', courseId: 'C003', status: 'PROCESSING', date: '2025-08-20', studentEmail: 'omar@email.com' }
+  ]);
+
+  const [afaqPlusRequests, setAfaqPlusRequests] = useState<Request[]>([
+    { id: 'P1', studentName: 'Sara Zidane', studentId: 'PST001', courseName: 'AI for Beginners', courseId: 'PC001', status: 'PROCESSING', date: '2025-08-22', studentEmail: 'sara@afaqplus.com' },
+    { id: 'P2', studentName: 'Yassin Khelfa', studentId: 'PST002', courseName: 'Advanced Calculus', courseId: 'PC002', status: 'ACCEPTED', date: '2025-08-21', studentEmail: 'yassin@afaqplus.com' }
   ]);
 
   // Course creation/edit form state
@@ -108,10 +127,17 @@ const AdminDashboard: React.FC = () => {
     coverImagePreview: ''
   });
 
-  // State for editing a course
   const [editingCourse, setEditingCourse] = useState<Course | null>(null);
 
-  // Filtered data with null checks
+  // Select data based on active dashboard
+  const students = activeDashboard === 'regular' ? regularStudents : afaqPlusStudents;
+  const teachers = activeDashboard === 'regular' ? regularTeachers : afaqPlusTeachers;
+  const courses = activeDashboard === 'regular' ? regularCourses : afaqPlusCourses;
+  const setCourses = activeDashboard === 'regular' ? setRegularCourses : setAfaqPlusCourses;
+  const requests = activeDashboard === 'regular' ? regularRequests : afaqPlusRequests;
+  const setRequests = activeDashboard === 'regular' ? setRegularRequests : setAfaqPlusRequests;
+
+  // Filtered data
   const filteredStudents = students.filter(student =>
     student.firstName.toLowerCase().includes(studentSearch.toLowerCase()) ||
     student.lastName.toLowerCase().includes(studentSearch.toLowerCase()) ||
@@ -215,7 +241,6 @@ const AdminDashboard: React.FC = () => {
       setCourses(prev => [...prev, newCourseData]);
     }
 
-    // Reset form
     setNewCourse({
       title: '',
       description: '',
@@ -374,7 +399,7 @@ const AdminDashboard: React.FC = () => {
             <div key={teacher.id} className="dashboard-card">
               <h3 className="table-cell-primary" style={{ fontSize: '1.125rem', marginBottom: '0.5rem' }}>{teacher.name}</h3>
               <p className="table-cell-secondary" style={{ marginBottom: '0.5rem' }}>{teacher.description}</p>
-              <p className="table-cell-secondary" style={{ color: '#d97706', fontWeight: '500' }}>Category: {teacher.category}</p>
+              <p className="table-cell-secondary" style={{ color: activeDashboard === 'regular' ? '#d97706' : '#6b46c1', fontWeight: '500' }}>Category: {teacher.category}</p>
               <p className="table-cell-secondary" style={{ fontSize: '0.75rem', marginTop: '0.5rem' }}>ID: {teacher.id}</p>
             </div>
           ))
@@ -807,45 +832,57 @@ const AdminDashboard: React.FC = () => {
   );
 
   return (
-    <div className="dashboard">
+    <div className={`dashboard ${activeDashboard === 'afaqPlus' ? 'dashboard-afaqplus' : ''}`}>
       <header className="dashboard-header">
         <div className="dashboard-header-content">
-          <h1 className="dashboard-title">Admin Dashboard</h1>
+          <h1 className="dashboard-title">{activeDashboard === 'regular' ? 'Admin Dashboard' : 'AfaqPlus Dashboard'}</h1>
           <p className="dashboard-subtitle">Manage your educational platform</p>
+          <button
+            onClick={() => setActiveDashboard(activeDashboard === 'regular' ? 'afaqPlus' : 'regular')}
+            className="btn btn-primary"
+            style={{ marginTop: '1rem' }}
+          >
+            Switch to {activeDashboard === 'regular' ? 'AfaqPlus' : 'Regular'} Dashboard
+          </button>
         </div>
       </header>
 
-      <nav className="dashboard-nav">
-        <div className="dashboard-nav-content">
-          <div className="dashboard-nav-tabs">
-            {[
-              { id: 'overview' as TabType, label: 'Overview' },
-              { id: 'students' as TabType, label: 'Students' },
-              { id: 'teachers' as TabType, label: 'Teachers' },
-              { id: 'courses' as TabType, label: 'Courses' },
-              { id: 'upload' as TabType, label: 'Upload Course' },
-              { id: 'requests' as TabType, label: 'Requests' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`dashboard-nav-tab ${activeTab === tab.id ? 'active' : 'inactive'}`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+      <div className="profile-layout">
+        <aside className="sidebar">
+          {/* Sidebar content goes here (assumed to be a separate component) */}
+          <nav className="dashboard-nav">
+            <div className="dashboard-nav-content">
+              <div className="dashboard-nav-tabs">
+                {[
+                  { id: 'overview' as TabType, label: 'Overview' },
+                  { id: 'students' as TabType, label: 'Students' },
+                  { id: 'teachers' as TabType, label: 'Teachers' },
+                  { id: 'courses' as TabType, label: 'Courses' },
+                  { id: 'upload' as TabType, label: 'Upload Course' },
+                  { id: 'requests' as TabType, label: 'Requests' }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`dashboard-nav-tab ${activeTab === tab.id ? 'active' : 'inactive'}`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </nav>
+        </aside>
 
-      <main className="dashboard-main">
-        {activeTab === 'overview' && renderOverview()}
-        {activeTab === 'students' && renderStudents()}
-        {activeTab === 'teachers' && renderTeachers()}
-        {activeTab === 'courses' && renderCourses()}
-        {activeTab === 'upload' && renderUploadCourse()}
-        {activeTab === 'requests' && renderRequests()}
-      </main>
+        <main className="dashboard-main">
+          {activeTab === 'overview' && renderOverview()}
+          {activeTab === 'students' && renderStudents()}
+          {activeTab === 'teachers' && renderTeachers()}
+          {activeTab === 'courses' && renderCourses()}
+          {activeTab === 'upload' && renderUploadCourse()}
+          {activeTab === 'requests' && renderRequests()}
+        </main>
+      </div>
     </div>
   );
 };
