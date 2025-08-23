@@ -59,7 +59,7 @@ const AddQuiz: React.FC = () => {
 
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="dropdown-group3">
-            <label htmlFor="course"> المادة :</label>
+            <label htmlFor="course"> الدورة :</label>
             <select
               id="course"
               name="course"
@@ -67,7 +67,7 @@ const AddQuiz: React.FC = () => {
               onChange={(e) => setCourse(e.target.value)}
               required
             >
-              <option value="">-- اختر المادة --</option>
+              <option value="">-- اختر الدورة --</option>
               <option value="motion">الحركة المستقيمة المنتظمة والمتغيرة</option>
               <option value="forces">القوى والحركة</option>
               <option value="energy">الطاقة والشغل</option>

@@ -1,6 +1,7 @@
 // /profile-teacher/page.jsx
 import React from 'react';
 
+
 const ProfileTeacherPage = () => {
   return (
     <div>

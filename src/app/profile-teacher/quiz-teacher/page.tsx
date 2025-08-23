@@ -21,7 +21,7 @@ export default function QuizT() {
   return (
     <div className="quizt">
       <div className="top1">
-        <p className="big-quiz">Quiz</p>
+        <p className="big-quiz">Quizes</p>
         <Link href="/profile-teacher/quiz-teacher/add-quiz" className="add-quiz">
           <img src={pluscircle.src} alt="Add" />
           <p>Add quiz</p>

@@ -4,9 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import "../../../../assets/styles/QuizInfo.css";
-import OverviewImg from "../../../../components/icons/OverviewImg";
-import Pagination from "../../../../components/AfaqPLus/Pagination";
+import "../../../assets/styles/StQuiz.css";
+import Pagination from "../../../components/AfaqPLus/Pagination";
 
 import PicSt from "@/assets/images/teachers/teacher1.png";
 
@@ -33,10 +32,7 @@ const QuizInfo = () => {
           <p className="correct-ans">الإجابات الصحيحة 7</p>
           <p className="wrong-ans">الإجابات الخاطئة 9</p>
         </div>
-        <Link href="/profile-teacher/quiz-teacher/quiz-info/quiz-overview" className="add-quiz">
-          <OverviewImg color={"#FFC800"} />
-          <p>إحصائيات</p>
-        </Link>
+        
       </div>
 
       <hr className="hr-quiz" />
@@ -83,24 +79,6 @@ const QuizInfo = () => {
         </div>
       </div>
 
-      <div className="students-answers">
-        <p className="ss">الطلاب الذين أجابوا</p>
-        <div className="students-list1">
-          {students.length === 0 ? (
-            <p className="no-students">لا يوجد أي طالب قد أجاب بعد</p>
-          ) : (
-            students.map((student, index) => (
-              <div key={index} className="student-item1">
-                <Image src={PicSt} alt="student" width={40} height={40} />
-                <p className="name-st">Wail Kataloni</p>
-                <p className="ans-st">
-                  اللغة العربية لغة صعبة لا تواكب التطور الرقمي.
-                </p>
-              </div>
-            ))
-          )}
-        </div>
-      </div>
 
       <Pagination
         currentPage={currentPage}

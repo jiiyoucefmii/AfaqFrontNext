@@ -16,17 +16,18 @@ export default function RootLayout({
   
   // Check if current page should hide navbar/footer (for profile routes)
   const isProfileRoute = pathname.startsWith('/profile-teacher');
+  const isOneCourseRoute = pathname.startsWith('/course-reader');
 
   return (
     <html lang="ar" dir="rtl">
       <body className={`layout ${isAfaqPlus ? 'afaq-layout-bg' : ''}`}>
         {/* Only show Navbar for non-profile routes */}
-        {!isProfileRoute && <Navbar />}
+        {!isProfileRoute && !isOneCourseRoute && <Navbar />}
         
         <main>{children}</main>
         
         {/* Only show Footer for non-profile routes */}
-        {!isProfileRoute && <Footer />}
+        {!isProfileRoute && !isOneCourseRoute && <Footer />}
       </body>
     </html>
   );
