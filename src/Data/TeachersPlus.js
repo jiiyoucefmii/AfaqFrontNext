@@ -24,13 +24,13 @@ const Teachers = [
   {
     id:3,
     image: teacher3,
-    module:"Data Science & Python Programming", 
+    module:"Graphic Design", 
     name:"Sara Bouzid",
   },
    {
     id:4,
     image:teacher4,
-    module:"Data Science & Python Programming", 
+    module:"Artificial Intelligence", 
     name:"Sara Bouzid",
 
   },

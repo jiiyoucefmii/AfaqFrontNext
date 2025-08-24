@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import "../../assets/styles/AfaqPlusCourses.css";
-import CoursesAfaqP from "../../data/CoursesAfaqP";
+import CoursesAfaqP from "../../Data/CoursesAfaqPP";
 import Image, { StaticImageData } from "next/image";
 import Pagination from "./Pagination";
 import FilterCoursesAfaqP from "./FilterCoursesAfaqP";
+import SearchButton from "./SearchButton";
 
 // Icons
 import starOutlined from "../../assets/images/Star.svg";
@@ -20,17 +21,42 @@ type Course = {
   image: string | StaticImageData;
   title: string;
   chapters: number;
-  price: string;
+  price: number;
+  category: string;
+  level: string;
+  duration: string;
 };
 
 const AfaqPlusCourses: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [likedCourses, setLikedCourses] = useState<number[]>([]);
+  
+  const [filters, setFilters] = useState({
+    subject: "",
+    level: "",
+    duration: "",
+    price: [0, 10000] as [number, number],
+  });
+
+  // Filter handler
+  const handleFilterChange = (name: string, value: any) => {
+    setFilters(prev => ({ ...prev, [name]: value }));
+    setCurrentPage(1); // reset page on filter change
+  };
+
+  // Apply filters
+  const filteredCourses = CoursesAfaqP.filter(course => {
+    const matchCategory = filters.subject ? course.category === filters.subject : true;
+    const matchLevel = filters.level ? course.level === filters.level : true;
+    const matchDuration = filters.duration ? course.duration === filters.duration : true;
+    const matchPrice = course.price >= filters.price[0] && course.price <= filters.price[1];
+    return matchCategory && matchLevel && matchDuration && matchPrice;
+  });
 
   const itemsPerPage = 8;
-  const totalPages = Math.ceil(CoursesAfaqP.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
   const indexStart = (currentPage - 1) * itemsPerPage;
-  const displayedCourses: Course[] = CoursesAfaqP.slice(indexStart, indexStart + itemsPerPage);
+  const displayedCourses: Course[] = filteredCourses.slice(indexStart, indexStart + itemsPerPage);
 
   const toggleLike = (id: number) => {
     setLikedCourses(prev =>
@@ -40,7 +66,8 @@ const AfaqPlusCourses: React.FC = () => {
 
   return (
     <div className="afaqpluscourses">
-      <FilterCoursesAfaqP/>
+      <SearchButton />
+      <FilterCoursesAfaqP filters={filters} onFilterChange={handleFilterChange} />
       <div className="courses">
         {displayedCourses.map(course => (
           <div className="one-card" key={course.id}>
@@ -75,7 +102,7 @@ const AfaqPlusCourses: React.FC = () => {
 
             <div className="price">
               <Image src={dollarIcon} alt="price" width={20} height={20} />
-              <p>{course.price}</p>
+              <p>{course.price} DA</p>
             </div>
 
             <div className="Play-now-btn-wrapper">

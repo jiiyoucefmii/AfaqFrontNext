@@ -9,7 +9,7 @@
 .dropdown-group1 {
   display: flex;
   flex-direction: row;
-  min-width: 250px;
+  min-width: 380px;
   align-items: center;
   justify-content: center;
   gap: 1.2rem;
@@ -43,6 +43,7 @@
   display: inline-block;
   border-bottom: 1.5px solid #000000;
   padding-bottom: 5px;
+
 }
 
 .dropdown-group1 select {
@@ -55,21 +56,21 @@
   background-color: transparent;
   color: #606060;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 300;
   font-family: 'Poppins';
   cursor: pointer;
   text-align: right;
   background: url('../images/arrow-circle-right-black.svg') no-repeat left 10px center;
   background-size: 1.2rem;
-  min-width: 10rem;
+  min-width: 17rem;
 }
 
 .dropdown-group1 select option {
   background-color: #010635;
   color: #FFEA97;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-bottom: 1px solid #02123a;
   text-align: right;
 }

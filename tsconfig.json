@@ -22,6 +22,18 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/AfaqPLus/AfaqPlusCourses.tsx", "src/components/ui/CardOver.tsx", "src/components/ui/CourseCard.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",
+
+    ".next/types/**/*.ts",
+    "src/components/AfaqPLus/AfaqPlusCourses.tsx",
+    "src/components/ui/CardOver.tsx",
+    "src/components/ui/CourseCard.jsx",
+ "src/app/course-reader/course-quiz",
+"src/components/Profile/SidenavS.jsx"
+, "src/app/course-reader/course-quiz"  ],    
   "exclude": ["node_modules"]
 }

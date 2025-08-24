@@ -35,7 +35,7 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
             </button>
 
             <div className="sidenav">
-                <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+                <aside className={`sidebar1 ${sidebarOpen ? "open" : ""}`}>
                     <div className={`top ${sidebarOpen ? 'barOpen' : ''}`}>
                         <Link href="/">
                             <Image src={logo} alt="Logo" className='logo-afaq' />
@@ -72,7 +72,7 @@ const Sidenav: React.FC<SidenavProps> = ({ children }) => {
                         </ul>
                     </nav>
                     <div className="log-out">
-                        <Link href="/profile">
+                        <Link href="/profile-teacher/Log-out">
                             <LogOut color="white" />
                             <p>تسجيل الخروج</p>
                         </Link>

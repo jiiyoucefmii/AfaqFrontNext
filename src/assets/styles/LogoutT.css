@@ -1,0 +1,299 @@
+/* Logout.css */
+.logout-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  direction: rtl;
+  font-family: 'Segoe UI', 'Tahoma', Arial, sans-serif;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-card {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  padding: 40px 32px;
+  text-align: center;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.logout-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f0df9a, #f5d659);
+}
+
+.logout-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.logout-symbol {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #f0df9a, #f5d659);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  animation: gentle-bounce 2s ease-in-out infinite;
+  position: relative;
+}
+
+.logout-symbol::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0df9a, #f5d659);
+  opacity: 0.6;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+.logout-content {
+  margin-bottom: 32px;
+}
+
+.logout-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.logout-message {
+  font-size: 18px;
+  color: #000000;
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.logout-submessage {
+  font-size: 15px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.logout-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.btn-cancel,
+.btn-logout {
+  flex: 1;
+  max-width: 180px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cancel {
+  background-color: #f8f9fa;
+  color: #241e1e;
+  border: 2px solid #e9ecef;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: #e9ecef;
+  border-color: #6c757d;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-logout {
+  background: linear-gradient(135deg, #ffcc00, #fde170);
+  color: white;
+  border: 2px solid transparent;
+}
+
+.btn-logout:hover:not(:disabled) {
+  background: linear-gradient(135deg, #ffcc00, #ffcc00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 242, 0, 0.4);
+}
+
+.btn-cancel:disabled,
+.btn-logout:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-logout:disabled {
+  background: linear-gradient(135deg, #f0df9a, #f5d659);
+}
+
+.logout-btn-icon {
+  font-size: 18px;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(245, 245, 245, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.logout-footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20px;
+  margin-top: 8px;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #8e9297;
+  margin: 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-text::before {
+  content: "ℹ️";
+  font-size: 16px;
+}
+
+/* تأثيرات إضافية للتفاعل */
+.btn-cancel:active {
+  transform: translateY(0px);
+}
+
+.btn-logout:active {
+  transform: translateY(0px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .logout-container {
+    padding: 16px;
+    min-height: calc(100vh - 60px);
+  }
+
+  .logout-card {
+    padding: 32px 24px;
+  }
+
+  .logout-symbol {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+
+  .logout-title {
+    font-size: 24px;
+  }
+
+  .logout-message {
+    font-size: 16px;
+  }
+
+  .logout-submessage {
+    font-size: 14px;
+  }
+
+  .logout-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .btn-cancel,
+  .btn-logout {
+    max-width: none;
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logout-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+  }
+
+  .logout-title {
+    font-size: 22px;
+  }
+
+  .logout-message {
+    font-size: 15px;
+  }
+
+  .logout-submessage {
+    font-size: 13px;
+  }
+
+  .logout-symbol {
+    width: 65px;
+    height: 65px;
+    font-size: 32px;
+  }
+}
+

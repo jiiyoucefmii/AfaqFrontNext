@@ -1,29 +1,71 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import '../../assets/styles/FilterTeachers.css';
+import React from "react";
+import Image from "next/image";
+import "../../assets/styles/FilterTeachers.css";
 
-import logoAfaq from '../../assets/images/LogoFrameBlack.svg';
-import logoAfaqPlus from '../../assets/images/Afaqplus_logoBlack.svg';
+import logoAfaq from "../../assets/images/LogoFrameBlack.svg";
+import logoAfaqPlus from "../../assets/images/Afaqplus_logoBlack.svg";
 
 interface FilterTeachersProps {
-  type?: 'plus' | 'normal';
+  type?: "plus" | "normal";
+  onFilterChange?: (course: string) => void;
 }
 
-const FilterTeachers: React.FC<FilterTeachersProps> = ({ type }) => {
-  const isplus = type === 'plus';
+const SCHOOL_MODULES: string[] = [
+  "الرياضيات",
+  "العلوم الطبيعية",
+  "الفيزياء",
+  "الإعلام الآلي",
+  "التاريخ والجغرافيا",
+  "اللغة العربية",
+  "اللغة الفرنسية",
+  "اللغة الإنجليزية",
+  "الفلسفة",
+  "العلوم الإسلامية",
+  "العلوم الاقتصادية",
+  "علوم التسيير والمحاسبة",
+  "القانون",
+  "الفنون التشكيلية",
+  "التربية البدنية والرياضية",
+  "التربية الموسيقية",
+];
+
+// 💻 مجالات Afaq+
+const PLUS_MODULES: string[] = [
+"Web Development",
+  "Mobile App Dev",
+  "3D Design",
+  "Artificial Intelligence",
+  "Data Analysis",
+  "Graphic Design",
+  "Project Management",
+  "Cybersecurity",
+];
+
+const FilterTeachers: React.FC<FilterTeachersProps> = ({ type, onFilterChange }) => {
+  const isplus = type === "plus";
   const selectedLogo = isplus ? logoAfaqPlus : logoAfaq;
 
+ 
+  const MODULES = isplus ? PLUS_MODULES : SCHOOL_MODULES;
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onFilterChange?.(e.target.value);
+  };
+
   return (
-    <div className='filter-teachers'>
+    <div className="filter-teachers">
       <form>
         <div className="dropdown-group1">
-          <label htmlFor="course1">المادة :</label>
-          <select id="course1" name="course1">
+          <label htmlFor={`course-${isplus ? "plus" : "school"}`}>المادة :</label>
+          <select id={`course-${isplus ? "plus" : "school"}`} onChange={handleChange}>
             <option value="">الكل</option>
-            <option value="science">العلوم</option>
-            <option value="history">التاريخ</option>
+            {MODULES.map((mod, idx) => (
+              <option key={idx} value={mod}>
+                {mod}
+              </option>
+            ))}
           </select>
         </div>
       </form>
@@ -31,17 +73,15 @@ const FilterTeachers: React.FC<FilterTeachersProps> = ({ type }) => {
       <div className="horizontal-line1"></div>
       <div className="logo-txt">
         <p>اساتذة</p>
-      <div className="logo-wrapper">
-        <Image
-          src={selectedLogo}
-          alt="logo"
-          className={`
-        ${isplus ? 'afaqplus-logo' : ''} `}
-          priority
-        />
+        <div className="logo-wrapper">
+          <Image
+            src={selectedLogo}
+            alt="logo"
+            className={isplus ? "afaqplus-logo" : ""}
+            priority
+          />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };

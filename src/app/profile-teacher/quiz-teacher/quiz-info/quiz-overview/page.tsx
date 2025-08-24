@@ -3,14 +3,19 @@
 import { useState } from "react"
 import Image from "next/image"
 import "../../../../../assets/styles/QuizOverview.css"
-
-// Import student images
 import PicSt from "../../../../../assets/images/teachers/teacher1.png"
 
 export default function QuizOverview() {
   const [sortOrder, setSortOrder] = useState("asc")
+  const [quizzes, setQuizzes] = useState([
+    {
+      name: "التحولات النووية والإشعاعات",
+      questions: 20,
+      maxMark: 20,
+      avgMark: 15
+    }
+  ])
 
-  // Students data with images
   const students = [
     { name: "Wail Kataloni", mark: 13, img: PicSt },
     { name: "Sara Benali", mark: 20, img: PicSt },
@@ -20,13 +25,24 @@ export default function QuizOverview() {
     { name: "Hiba Amrani", mark: 8, img: PicSt },
   ]
 
-  // Sorting logic
   const sortedStudents = [...students].sort((a, b) =>
     sortOrder === "asc" ? a.mark - b.mark : b.mark - a.mark
   )
 
+  const handleDeleteQuiz = () => {
+    if (confirm("هل أنت متأكد من حذف هذا الاختبار وكل محتوياته؟ ❌")) {
+      setQuizzes([]) // remove all quizzes
+    }
+  }
+
+  if (quizzes.length === 0) {
+    return <p className="no-quiz">لا يوجد أي اختبار متاح</p>
+  }
+
   return (
     <div className="quiz-overview">
+
+
       <table className="quiz-table">
         <thead>
           <tr>
@@ -37,31 +53,36 @@ export default function QuizOverview() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>التحولات النووية والإشعاعات</td>
-            <td>20</td>
-            <td>20</td>
-            <td>15</td>
-          </tr>
+          {quizzes.map((quiz, idx) => (
+            <tr key={idx}>
+              <td>{quiz.name}</td>
+              <td>{quiz.questions}</td>
+              <td>{quiz.maxMark}</td>
+              <td>{quiz.avgMark}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
 
       <p className="answ-st">الطلاب الذين أجابوا</p>
 
       <div className="std-marks">
-        <form>
-          <div className="dropdown-group4">
-            <label htmlFor="sort">الترتيب :</label>
-            <select
-              id="sort"
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-            >
-              <option value="asc">تصاعديا</option>
-              <option value="desc">تنازليا</option>
-            </select>
-          </div>
-        </form>
+        <div className="bombl">
+          <form>
+            <div className="dropdown-group4">
+              <label htmlFor="sort">الترتيب :</label>
+              <select
+                id="sort"
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+              >
+                <option value="asc">تصاعديا</option>
+                <option value="desc">تنازليا</option>
+              </select>
+            </div>
+          </form>
+         
+        </div>
 
         <div className="students-list1">
           {sortedStudents.length === 0 ? (
@@ -83,6 +104,15 @@ export default function QuizOverview() {
           )}
         </div>
       </div>
+
+       <div className="delete-quiz-container">
+            <button
+              className="delete-quiz-btn"
+              onClick={handleDeleteQuiz}
+            >
+              ❌ حذف الاختبار
+            </button>
+          </div>
     </div>
   )
 }

@@ -1,19 +1,26 @@
+/* ------------------- AddQuiz Container ------------------- */
 .addquiz {
     direction: ltr;
     padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Title */
 .big-quiz {
-    font-family: 'Poppins';
     font-weight: 500;
     font-size: 56px;
-    line-height: 100%;
     color: #343434;
     text-align: left;
     padding: 0;
     margin-bottom: 1rem;
+    transition: color 0.3s ease;
 }
 
+.big-quiz:hover {
+    color: #254D9E; /* subtle hover color */
+}
+
+/* Divider */
 .hr-quiz {
     width: 100%;
     height: 2px;
@@ -22,54 +29,27 @@
     margin: 1rem 0;
 }
 
+/* Top Section */
 .top1 {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center; /* ✅ centré verticalement */
-    flex-wrap: wrap; /* ✅ pour que ça descende si pas de place */
+    align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
-.add-quiz {
-    border: 1px solid #254D9E;
-    padding: 0 35px;
-    border-radius: 12px;
-    gap: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    direction: rtl;
-    height: 45px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
-}
-
-/* --- Dropdown --- */
+/* Dropdown */
 .dropdown-group3 {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 1.2rem;
-  direction: rtl;
   flex-wrap: wrap;
+  direction: rtl;
 }
 
-.dropdown-form {
-  direction: rtl;
-}
-.option-item{
-  display: flex;
-  direction: rtl;
-  justify-content: right;
-}
 .dropdown-group3 label {
-  margin-bottom: 0.3rem;
   font-size: 1.4rem;
   font-weight: 600;
-  font-family: 'Poppins';
   color: #606060;
   display: inline-block;
   border-bottom: 1.5px solid #000000;
@@ -77,231 +57,160 @@
 }
 
 .dropdown-group3 select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 5px 40px 5px 20px;
+  padding: 8px 40px 8px 20px;
   border-radius: 10px;
   border: 1px solid #000000;
-  background-color: transparent;
+  background-color: #f9f9f9;
   color: #606060;
   font-size: 1.2rem;
-  font-weight: 300;
-  font-family: 'Poppins';
   cursor: pointer;
-  text-align: right;
-  background: url('../images/arrow-circle-right-black.svg') no-repeat left 10px center;
-  background-size: 1.2rem;
   min-width: 23rem;
+  transition: all 0.3s ease;
 }
 
-.dropdown-group3 select option {
-  background-color: #010635;
-  color: #FFEA97;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
-  border-bottom: 1px solid #02123a;
-  text-align: right;
-  padding-right: 0;
-}
-
-.dropdown-group3 select option:hover {
-  background-color: #02123a;
-  color: #FFEA97;
+.dropdown-group3 select:hover {
+    border-color: #254D9E;
 }
 
 /* ------------------- Inputs ------------------- */
 .form-group input,
 .form-group-title input,
 .option-input {
-  width: 100%;
-  height: 60px;
-  direction: rtl;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 18px;
-  padding: 0.75rem 3rem 0.75rem 2.5rem; /* dynamic padding */
-  background: url('../images/InputIcon.svg') no-repeat left 10px center;
-  background-size: 20px;
-  background-color: #C9D3DA;
-  box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    padding: 0.75rem 2.5rem;
+    background-color: #C9D3DA;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    text-align: right;
 }
 
-.form-group-title input {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-weight: 800;
-  font-size: 20px;
-}
-
-.form-group input::placeholder {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  text-align: right;
-  color: #1F1F1F;
-}
-
-.form-group-title input::placeholder {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  text-align: center;
-  color: #1F1F1F;
+.form-group input:focus,
+.form-group-title input:focus,
+.option-input:focus,
+.question textarea:focus {
+    outline: none;
+    border-color: #254D9E;
+    box-shadow: 0 0 10px rgba(37,77,158,0.3);
 }
 
 /* Question textarea */
 .question textarea {
-  width: 100%;
-  min-height: 120px;
-  background-color: #C9D3DA;
-  direction: rtl;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  resize: vertical;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
+    width: 100%;
+    min-height: 120px;
+    background-color: #C9D3DA;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    resize: vertical;
+    font-size: 18px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    text-align: right;
 }
 
-.question textarea::placeholder {
-  font-weight: 600;
-  font-size: 18px;
-  text-align: right;
-  color: #1F1F1F;
+/* Question Block Card */
+.question-block {
+    background: #f1f1f1;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ------------------- Boutons ------------------- */
+.question-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Options */
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.correct-choice {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #343434;
+}
+
+.correct-choice input[type="radio"] {
+    accent-color: #4CAF50;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.correct-choice input[type="radio"]:hover {
+    transform: scale(1.1);
+}
+
+/* ------------------- Buttons ------------------- */
 .btn-q {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  text-align: center;
-  color: black;
-  border-radius: 10px;
-  cursor: pointer;
-  border: none;
-  transition: 0.3s ease;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
 }
 
 .submit-btn {
-  background-color: #D4FFB9;
-  padding: 1rem 3rem;
-  flex: 1;
+    background-color: #D4FFB9;
+    padding: 1rem 3rem;
+    flex: 1;
+}
+
+.submit-btn:hover {
+    background-color: #b8f495;
+    transform: translateY(-3px);
 }
 
 .add-option {
-  background-color: #7AA8CE;
-  padding: 1rem 3rem;
-  flex: 5;
-  width: auto;
+    background-color: #7AA8CE;
+    padding: 1rem 3rem;
+    flex: 5;
+    width: auto;
 }
 
+.add-option:hover {
+    background-color: #6090b3;
+    transform: translateY(-3px);
+}
+
+/* Actions Container */
 .form-actions {
-  display: flex;
-  flex-wrap: wrap; /* allows stacking on small screens */
-  gap: 1rem;
-  justify-content: center;
-  direction: rtl;
-  margin-top: 1.5rem;
-}
-
-/* ✅ Boutons radio personnalisés */
-.correct-choice {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  color: #343434;
-}
-.option-input{
-  flex: 7;
-}
-.option-radio{
-  flex: 1;
-}
-.correct-choice input[type="radio"] {
-  accent-color: #4CAF50; /* vert par défaut */
-  width: 14px;   /* ✅ plus petit */
-  height: 14px;  /* ✅ plus petit */
-  margin: 0;     /* ✅ évite les décalages */
-  cursor: pointer;
-  flex-shrink: 0; /* ✅ évite que ça se déforme */
-}
-
-.correct-choice input[type="radio"]:checked {
-  accent-color: #28a745; /* vert plus foncé quand sélectionné */
-  transform: scale(1.05); /* léger effet au lieu de trop grand */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    direction: rtl;
+    margin-top: 1.5rem;
 }
 
 /* ------------------- Responsive ------------------- */
-@media (max-width: 1280px) {
-    .big-quiz {
-        font-size: 48px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .big-quiz {
-        font-size: 40px;
-    }
-    .dropdown-group3 {
-        justify-content: center;
-    }
-}
-
 @media (max-width: 768px) {
-    .big-quiz {
-        font-size: 32px;
-        text-align: center;
-        width: 100%;
-    }
-    .top1 {
-        flex-direction: column;
-        align-items: center;
-    }
-    .dropdown-group3 {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.8rem;
-    }
-    .dropdown-group3 select {
-        width: 100%;
-        min-width: 20rem;
-    }
-    .top1{
-        padding-top: 1rem;
-    }
-    .form-group input,
-    .form-group-title input,
-    .option-input,
-    .question textarea {
-        font-size: 16px;
-        padding: 0.6rem 2.5rem 0.6rem 2rem;
-    }
-
-    .btn-q {
-        font-size: 18px;
-        padding: 0.8rem 2rem;
-    }
+    .big-quiz { font-size: 32px; text-align: center; width: 100%; }
+    .top1 { flex-direction: column; align-items: center; }
+    .dropdown-group3 { flex-direction: column; gap: 0.8rem; }
+    .form-group input, .option-input, .question textarea { font-size: 16px; padding: 0.6rem 2rem; }
+    .btn-q { font-size: 18px; padding: 0.8rem 2rem; }
 }
 
 @media (max-width: 480px) {
-    .big-quiz {
-        font-size: 28px;
-    }
-    .form-actions {
-        flex-direction: column; /* buttons stack */
-        width: 100%;
-    }
-    .btn-q {
-        width: 100%;
-        font-size: 16px;
-    }
+    .big-quiz { font-size: 28px; }
+    .form-actions { flex-direction: column; width: 100%; }
+    .btn-q { width: 100%; font-size: 16px; }
 }

@@ -1,0 +1,382 @@
+/* DeleteAccount.css */
+.delete-account-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  direction: rtl;
+  font-family: 'Segoe UI', 'Tahoma', Arial, sans-serif;
+  min-height: calc(100vh - 80px);
+}
+
+.delete-account-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 100%;
+  border: 1px solid #e9ecef;
+}
+ .delete-account-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  /* Remove fixed width */
+  width: auto;
+  /* Add max-width to prevent it from becoming too wide on large screens */
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid #e9ecef;
+  /* Make it fill the container */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+
+.delete-account-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.delete-account-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #dc3545;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.delete-account-title::before {
+  content: "🗑️";
+  font-size: 32px;
+}
+
+.delete-account-subtitle {
+  font-size: 16px;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.delete-account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 50px 16px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-input.error {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+}
+
+.form-input.error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-input:disabled {
+  background-color: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.password-toggle {
+  position: absolute;
+  left: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  font-size: 18px;
+}
+
+.password-toggle:hover:not(:disabled) {
+  background-color: #e9ecef;
+}
+
+.password-toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.confirmation-group {
+  margin: 8px 0;
+}
+
+.confirmation-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+.confirmation-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #6c757d;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.confirmation-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.confirmation-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.confirmation-text {
+  flex: 1;
+}
+
+.error-message {
+  background-color: #fff5f5;
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #dc3545;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.warning-box {
+  background-color: #fff8e1;
+  border: 1px solid #ffc107;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 8px 0;
+}
+
+.warning-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #e65100;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.warning-icon {
+  font-size: 18px;
+}
+
+.warning-list {
+  margin: 0;
+  padding-right: 20px;
+  color: #bf360c;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.warning-list li {
+  margin-bottom: 6px;
+}
+
+.warning-list li:last-child {
+  margin-bottom: 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.btn-cancel,
+.btn-delete {
+  flex: 1;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-cancel {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 2px solid #e9ecef;
+}
+
+.btn-cancel:hover:not(:disabled) {
+  background-color: #e9ecef;
+  border-color: #6c757d;
+  color: #495057;
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover:not(:disabled) {
+  background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(220, 53, 69, 0.3);
+}
+
+.btn-cancel:disabled,
+.btn-delete:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+.btn-delete:disabled {
+  background-color: #dc3545;
+}
+
+.loading-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .delete-account-container {
+    padding: 16px;
+    min-height: calc(100vh - 60px);
+  }
+
+  .delete-account-card {
+    padding: 24px;
+  }
+
+  .delete-account-title {
+    font-size: 24px;
+  }
+
+  .delete-account-title::before {
+    font-size: 28px;
+  }
+
+  .delete-account-subtitle {
+    font-size: 15px;
+  }
+
+  .form-input {
+    padding: 14px 45px 14px 14px;
+    font-size: 15px;
+  }
+
+  .password-toggle {
+    left: 12px;
+    font-size: 16px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .btn-cancel,
+  .btn-delete {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .confirmation-checkbox {
+    font-size: 14px;
+  }
+
+  .warning-list {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .delete-account-card {
+    padding: 20px;
+  }
+
+  .delete-account-title {
+    font-size: 22px;
+  }
+
+  .delete-account-subtitle {
+    font-size: 14px;
+  }
+}

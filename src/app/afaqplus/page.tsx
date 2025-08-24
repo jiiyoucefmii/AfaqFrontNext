@@ -1,7 +1,7 @@
 import "@/assets/styles/AfaqPlus.css"
-import SearchButton from "@/components/AfaqPLus/SearchButton"
+
 import AfaqPlusCourses from "@/components//AfaqPLus/AfaqPlusCourses"
-import FilterCoursesAfaqP from "@/components//AfaqPLus/FilterCoursesAfaqP"
+
 
 export default function AfaqPlusPage() {
   return (
@@ -13,7 +13,7 @@ export default function AfaqPlusPage() {
           المميزة
         </h1>
       </div>
-      <SearchButton />
+      
       <AfaqPlusCourses />
     </div>
   )

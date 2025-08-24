@@ -11,7 +11,7 @@ interface CourseCardProps {
   subject?: string;
   chapters?: number;
   price?: string;
-  thumbnail?: any;
+  thumbnail?: string;
   rating?: number;
   onEnroll?: () => void;
   className?: string;
@@ -28,7 +28,6 @@ export default function CourseCard({
   onEnroll,
   className = "",
 }: CourseCardProps) {
-  console.log('CourseCard props:', { title, instructor, subject, chapters, price });
   
   return (
     <div className={`afaq-course-card ${className}`} dir="rtl">
@@ -42,24 +41,20 @@ export default function CourseCard({
           style={{ objectFit: 'cover' }}
         />
         
-        {/* Star Rating - at top-right */}
+        {/* Star Rating */}
         <div className="afaq-course-card-star-icon">
           <FaStar fill="#eab308" color="#eab308" />
         </div>
         
-        {/* Subject Badge - restored below thumbnail */}
+        {/* Subject Badge */}
         <div className="afaq-course-card-subject-badge">
           <span className="afaq-course-card-subject-text">{subject}</span>
         </div>
       </div>
       
       <div className="afaq-course-card-content">
-        <h3 className="afaq-course-card-title">
-          {title}
-        </h3>
-        <p className="afaq-course-card-instructor">
-          {instructor}
-        </p>
+        <h3 className="afaq-course-card-title">{title}</h3>
+        <p className="afaq-course-card-instructor">{instructor}</p>
         
         <div className="afaq-course-card-info">
           <div className="afaq-course-card-chapters">
@@ -68,7 +63,6 @@ export default function CourseCard({
               alt="Open Book" 
               width={16} 
               height={16}
-              style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(2000%) hue-rotate(210deg) brightness(95%) contrast(95%)' }}
             />
             <span>{chapters} فصل</span>
           </div>
