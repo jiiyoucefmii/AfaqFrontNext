@@ -26,6 +26,7 @@ export default function CourseReaderPage() {
             allowFullScreen
             className="videooo"
           />
+          <p className='email-watermark'>@email</p>
           <p>الحصة الأولى</p>
         </div>
         <div className="sessions">

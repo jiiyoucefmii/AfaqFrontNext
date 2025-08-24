@@ -22,6 +22,16 @@
 
 }
 
+.video-player{
+  position:relative;
+}
+.email-watermark{
+  position: absolute;
+  bottom: 7rem;
+  right: 2rem;
+  color: #00052b5a;
+}
+
 .add-quiz:hover {
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     transform: translateY(-3px) scale(1.02);
