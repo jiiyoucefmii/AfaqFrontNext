@@ -27,9 +27,9 @@
 }
 .email-watermark{
   position: absolute;
-  bottom: 7rem;
+  top: 0rem;
   right: 2rem;
-  color: #00052b5a;
+  color:red;
 }
 
 .add-quiz:hover {
