@@ -1,0 +1,410 @@
+/* =================================
+   TEACHER COURSES CAROUSEL STYLES
+   ================================= */
+
+/* Main Section */
+.teacher-courses-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 4rem 0;
+  margin: 2rem 0;
+}
+
+.teacher-courses-container {
+  max-width: 1410px;
+  margin: 0 auto;
+  padding: 0 3.938rem;
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teacher-courses-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.teacher-courses-title {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 48px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+/* Carousel Container */
+.teacher-courses-carousel {
+width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+/* Navigation Arrows */
+.teacher-carousel-arrow {
+  background-color: #FFD700;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #000000;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.teacher-carousel-arrow:hover:not(:disabled) {
+  background-color: #FFC107;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.teacher-carousel-arrow:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.teacher-carousel-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Grid Container */
+.teacher-courses-grid-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 1120px;
+  max-width: 100%;
+}
+
+.teacher-courses-grid {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  overflow: visible;
+}
+
+/* Course Cards */
+.teacher-course-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 262px;
+  height: 329.33px;
+  flex-shrink: 0;
+}
+
+.teacher-course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.teacher-course-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.teacher-course-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.teacher-course-card:hover .teacher-course-img {
+  transform: scale(1.05);
+}
+
+.teacher-course-content {
+  padding: 1.5rem;
+  text-align: right;
+  height: calc(329.34px - 200px - 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.teacher-course-name {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+}
+
+.teacher-course-instructor {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* No Courses Message */
+.teacher-no-courses-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  font-family: 'Poppins', sans-serif;
+  direction: rtl;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Bottom Section */
+.teacher-courses-bottom {
+  text-align: center;
+}
+
+.teacher-see-more-btn {
+  background-color: #FFD700;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(255, 215, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+  justify-content: center;
+}
+
+.teacher-see-more-btn:hover {
+  background-color: #FFC107;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+   ================================= */
+
+/* Tablet screens */
+
+  @media (max-width: 1420px) {
+    .teacher-courses-carousel {
+      width: 997px;
+    }
+  }
+  @media (max-width: 1040px) {
+    .teacher-courses-section {
+    margin-top: 0rem;
+    padding: 2rem 0;
+  }
+    .teacher-courses-carousel {
+    width:680px ;
+    gap: 1rem;
+  }
+  }
+
+@media (max-width: 768px) {
+  .teacher-courses-section {
+    margin-top: 0rem;
+    padding: 2rem 0;
+  }
+  
+  .teacher-courses-container {
+    padding: 0 1rem;
+  }
+  
+  .teacher-courses-title {
+    font-size: 36px;
+    margin-bottom: 2rem;
+  }
+  
+  .teacher-courses-carousel {
+    width:662px ;
+    gap: 1rem;
+  }
+  
+  .teacher-carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .teacher-carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .teacher-courses-grid {
+    gap: 1rem;
+  }
+}
+@media (max-width: 690px) {
+    .teacher-courses-carousel {
+    width:374px ;
+    gap: 1rem;
+  }
+}
+/* Mobile screens */
+@media (max-width: 480px) {
+  .teacher-courses-title {
+    font-size: 28px;
+  }
+  
+  .teacher-courses-carousel {
+    width:364px ;
+    gap: 1rem;
+    
+  }
+  
+  .teacher-carousel-arrow {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .teacher-carousel-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .teacher-courses-grid {
+    gap: 0.5rem;
+  }
+  
+  .teacher-course-card {
+    width: 240px;
+  }
+}
+
+/* Responsive card sizing */
+/* Desktop: Show 4 cards */
+@media (min-width: 1200px) {
+  .teacher-course-card {
+    width: calc((100% - 4.5rem) / 4);
+    min-width: 262px;
+    max-width: 262px;
+  }
+}
+
+/* Large tablet: Show 3 cards */
+@media (max-width: 1199px) and (min-width: 769px) {
+  .teacher-course-card {
+    width: calc((100% - 3rem) / 3);
+    min-width: 262px;
+    max-width: 262px;
+  }
+}
+
+/* Small tablet: Show 2 cards */
+@media (max-width: 768px) and (min-width: 481px) {
+  .teacher-course-card {
+    width: calc((100% - 1rem) / 2);
+    min-width: 240px;
+    max-width: 262px;
+  }
+}
+
+/* Mobile: Show 1 card */
+@media (max-width: 480px) {
+  .teacher-course-card {
+    width: 100%;
+    min-width: 230px;
+    max-width: 262px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 390px) {
+    .teacher-courses-grid-container {
+  width: 262px;
+}
+  .teacher-course-card {
+    width: 100%;
+    min-width: 262px;
+    max-width: 262px;
+  }
+  
+  .teacher-courses-carousel {
+    width: 364px;
+    gap: 1rem;
+  }
+  
+  .teacher-carousel-arrow {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .teacher-carousel-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .teacher-courses-grid {
+    gap: 7rem;
+  }
+}
+
+/* Hide price and chapters info in teacher carousel */
+.teacher-course-card .afaq-course-card-info {
+  display: none !important;
+}
+
+.teacher-course-card .afaq-course-card-chapters {
+  display: none !important;
+}
+
+.teacher-course-card .afaq-course-card-price {
+  display: none !important;
+}
+
+/* Hide the enroll button in teacher carousel */
+.teacher-course-card .afaq-course-card-enroll-btn {
+  display: none !important;
+}
+
+/* Adjust content spacing without price/chapters/button */
+.teacher-course-card .afaq-course-card-content {
+  padding: 0.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.teacher-course-card .afaq-course-card-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.teacher-course-card .afaq-course-card-instructor {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #4b5563;
+  margin: 0;
+  font-size: 0.875rem;
+}

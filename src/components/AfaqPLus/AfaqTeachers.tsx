@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/navigation";
 import "../../assets/styles/AfaqTeachers.css";
 import Teachers from "../../data/TeachersAfaq";
 import Pagination from "./Pagination";
@@ -19,21 +20,26 @@ interface AfaqTeachersProps {
 
 const AfaqTeachers: React.FC<AfaqTeachersProps> = ({ filter }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const router = useRouter();
   const itemsPerPage = 8;
 
-  // appliquer le filtre
+  // Apply filter
   const filteredTeachers = filter
     ? Teachers.filter((teacher) =>
         teacher.module.toLowerCase().includes(filter.toLowerCase())
       )
     : Teachers;
- {/*testing with folder teachers -- here where we need to load from db */}
+
   const totalPages = Math.ceil(filteredTeachers.length / itemsPerPage);
   const indexStart = (currentPage - 1) * itemsPerPage;
   const displayedTeachers = filteredTeachers.slice(
     indexStart,
     indexStart + itemsPerPage
   );
+
+  const handleTeacherClick = (teacherId: number) => {
+    router.push(`/teachers/${teacherId}`);
+  };
 
   return (
     <div className="afaq-teachers">
@@ -44,15 +50,23 @@ const AfaqTeachers: React.FC<AfaqTeachersProps> = ({ filter }) => {
           <div className="all-teachers">
             {displayedTeachers.map((teacher: Teacher) => (
               <div className="one-card" key={teacher.id}>
-                <Image
-                  src={teacher.image}
-                  alt={teacher.name}
-                  className="teacher-img"
-                />
+                <div className="teacher-img-wrapper">
+                  <Image
+                    src={teacher.image}
+                    alt={teacher.name}
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
                 <div className="white-bottom">
                   <p className="teacher-name">{teacher.name}</p>
                   <p className="module">{teacher.module}</p>
-                  <button className="teacher-info">حول الأستاذ</button>
+                  <button
+                    className="teacher-info"
+                    onClick={() => handleTeacherClick(teacher.id)}
+                  >
+                    حول الأستاذ
+                  </button>
                 </div>
               </div>
             ))}
