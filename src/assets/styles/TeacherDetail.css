@@ -1,0 +1,296 @@
+/* =================================
+   TEACHER DETAIL PAGE STYLES
+   ================================= */
+
+/* Base Container */
+.teacher-detail-container {
+  width: 100vw;
+  max-width: none;
+  min-width: 320px;
+  overflow: visible;
+  margin: 8rem 0 0 0;
+  padding: 2rem 0;
+  font-family: 'Amiri', sans-serif;
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+}
+
+/* =================================
+   HEADER SECTION
+   ================================= */
+
+.teacher-header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 4rem 1.5rem 0;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.header-icon {
+  flex-shrink: 0;
+  overflow: visible;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-right: 60%;
+}
+
+.detail-lines-icon {
+  width: 100%;
+  height: 50px;
+}
+
+.detail-lines-icon img {
+  width: 100%;
+  height: 9px;
+}
+
+ 
+
+.teacher-detail-name {
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+  text-align: right;
+}
+
+.teacher-class {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  height: 30px;
+  gap: 2rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+}
+
+.dot-image {
+  width: 20px;
+  height: 20px;
+}
+
+.teacher-module {
+  display: flex;
+  align-items: center;
+}
+
+.teacher-module-text {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #666666;
+  margin: 0;
+}
+
+/* =================================
+   CONTENT SECTION
+   ================================= */
+
+.teacher-content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 17rem;
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  margin: 0 4rem 4rem 4rem;
+}
+
+.teacher-image-section {
+  flex: 0 0 auto;
+  margin-left: 0;
+  padding-left: 0;
+  order: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.teacher-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.teacher-image-container img {
+  width: 447.62px;
+  height: 598.16px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+.teacher-description-section {
+  padding-right: 0;
+  order: 2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  line-height: 70px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.teacher-description {
+  margin-top: 35px;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+   ================================= */
+
+/* Tablet and smaller screens */
+@media (max-width: 1500px) {
+  .teacher-content {
+    
+    margin: 0 1rem 4rem 1rem;
+    gap: 8rem;
+  }
+
+
+}
+@media (max-width: 1024px) {
+    .header-icon {
+  flex-shrink: 0;
+  overflow: visible;
+  position: absolute;
+  left: 0;
+  top: 60%;
+  transform: translateY(-50%);
+  padding-right: 50%;
+}
+  .teacher-content {
+    flex-direction: column;
+    margin: 3rem 1rem 4rem 1rem;
+    gap: 3rem;
+  }
+  .teacher-detail-name {
+    font-size: 40px;
+    text-align: right;
+    order: 1;
+  }
+  .teacher-header{
+    padding-right: 2rem;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+    .teacher-description {
+    font-size: 26px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+        .header-icon {
+  flex-shrink: 0;
+  overflow: visible;
+  position: absolute;
+  left: 0;
+  top: 60%;
+  transform: translateY(-50%);
+  padding-right: 10%;
+}
+  .teacher-detail-container {
+    width: 100vw;
+    margin-top: 7rem;
+  }
+  
+  .teacher-detail-name {
+    font-size: 56px;
+    text-align: center;
+    order: 1;
+  }
+  
+  .header-icon {
+    position: absolute;
+    left: 0;
+    top: 110%;
+    transform: translateY(-50%);
+  }
+  
+  .teacher-header {
+    
+    text-align: center;
+    gap: 6rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .teacher-detail-container {
+    width: 100vw;
+    margin-top: 5rem;
+  }
+  
+  .teacher-detail-name {
+    font-size: 36px;
+    text-align: center;
+    order: 1;
+  }
+  
+  .header-icon {
+    position: absolute;
+    left: 0;
+    top: 90%;
+    transform: translateY(-50%);
+  }
+  
+  .teacher-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 20rem;
+    padding: 1.5rem;
+  }
+  
+  .detail-lines-icon {
+    width: 100%;
+    height: auto;
+    order: 2;
+    margin: 1rem 0;
+  }
+  
+  .teacher-image-container img {
+    width: 100vw;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-left: 0;
+  }
+  
+  .teacher-content {
+    flex-direction: column;
+    margin: 0 1rem 4rem 1rem;
+    gap: 3rem;
+  }
+  
+  .teacher-class {
+    gap: 1rem;
+  }
+  
+  .teacher-description-section {
+    text-align: center;
+    order: 5;
+  }
+  
+  .teacher-description {
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.6;
+  }
+}
