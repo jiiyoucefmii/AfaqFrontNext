@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import Image from 'next/image';
 import '../../assets/styles/CourseCard.css';
@@ -15,6 +15,9 @@ interface CourseCardProps {
   rating?: number;
   onEnroll?: () => void;
   className?: string;
+  courseId?: string | number; // Added for backend integration
+  initialIsFavorite?: boolean; // Added to set initial favorite state
+  onFavoriteToggle?: (courseId: string | number, isFavorite: boolean) => void; // Added for backend integration
 }
 
 export default function CourseCard({
@@ -27,7 +30,23 @@ export default function CourseCard({
   rating = 5,
   onEnroll,
   className = "",
+  courseId,
+  initialIsFavorite = false,
+  onFavoriteToggle,
 }: CourseCardProps) {
+  // State for favorite toggle
+  const [isFavorite, setIsFavorite] = useState(initialIsFavorite);
+  
+  // Handle favorite toggle
+  const handleFavoriteToggle = () => {
+    const newFavoriteState = !isFavorite;
+    setIsFavorite(newFavoriteState);
+    
+    // Call the callback function for backend integration if provided
+    if (onFavoriteToggle && courseId) {
+      onFavoriteToggle(courseId, newFavoriteState);
+    }
+  };
   
   return (
     <div className={`afaq-course-card ${className}`} dir="rtl">
@@ -41,9 +60,16 @@ export default function CourseCard({
           style={{ objectFit: 'cover' }}
         />
         
-        {/* Star Rating */}
-        <div className="afaq-course-card-star-icon">
-          <FaStar fill="#eab308" color="#eab308" />
+        {/* Star Rating - now with favorite functionality */}
+        <div 
+          className={`afaq-course-card-star-icon ${isFavorite ? 'favorite' : ''}`}
+          onClick={handleFavoriteToggle}
+          style={{ cursor: 'pointer' }}
+        >
+          <FaStar 
+            fill={isFavorite ? "#eab308" : "#d1d5db"} 
+            color={isFavorite ? "#eab308" : "#d1d5db"} 
+          />
         </div>
         
         {/* Subject Badge */}

@@ -25,7 +25,7 @@
 .afaq-course-card-star-icon {
   position: absolute;
   top: 0.75rem;
-  right: 0.75rem; /* Changed from left to right */
+  right: 0.75rem;
   width: 2.5rem;
   height: 2.5rem;
   background-color: #f3f4f6;
@@ -33,12 +33,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.afaq-course-card-star-icon:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+}
+
+.afaq-course-card-star-icon.favorite {
+  background-color: #fef3c7;
+  border-color: #eab308;
+}
+
+.afaq-course-card-star-icon.favorite:hover {
+  background-color: #fde68a;
 }
 
 .afaq-course-card-star-icon svg {
   width: 1.25rem;
   height: 1.25rem;
-  color: #eab308;
+  transition: all 0.2s ease;
 }
 
 .afaq-course-card-subject-badge {
