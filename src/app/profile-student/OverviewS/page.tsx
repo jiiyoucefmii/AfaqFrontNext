@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import CardOver from '@/components/ui/CardOverS';
 import Skills from '@/components/Profile/Skills';
 import FavoriteCourses from '@/components/Profile/FavoriteCourses';
-import Pagination from '@/components/AfaqPLus/Pagination';
 import '@/assets/styles/OverviewS.css';
 
 // Sample data - replace with your actual data
@@ -17,7 +16,20 @@ const skillsData = [
   { id: 7, name: 'MongoDB', progress: 55, icon: '🍃' },
 ];
 
-const coursesData = [
+// Updated interface to match FavoriteCourses component
+interface Course {
+  id: number;
+  image: string;
+  title: string;
+  instructor: string;
+  originalPrice?: string;
+  currentPrice: string;
+  progress: number;
+  rating: number;
+  studentsCount: number;
+}
+
+const coursesData: Course[] = [
   {
     id: 1,
     image: '/images/web-development.jpg',
@@ -49,17 +61,32 @@ const coursesData = [
     progress: 90,
     rating: 5,
     studentsCount: 3201
+  },
+  {
+    id: 4,
+    image: '/images/mobile-app.jpg',
+    title: 'تطوير تطبيقات الموبايل',
+    instructor: 'فاطمة أحمد',
+    originalPrice: '4500 DA',
+    currentPrice: '1200 DA',
+    progress: 60,
+    rating: 4,
+    studentsCount: 1890
+  },
+  {
+    id: 5,
+    image: '/images/data-science.jpg',
+    title: 'علوم البيانات والذكاء الاصطناعي',
+    instructor: 'عمر حسن',
+    currentPrice: '2500 DA',
+    progress: 0,
+    rating: 5,
+    studentsCount: 3456
   }
 ];
 
 const OverviewS: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 3;
-  const totalPages = Math.ceil(coursesData.length / itemsPerPage);
-
-  const indexStart = (currentPage - 1) * itemsPerPage;
-  const displayedCourses = coursesData.slice(indexStart, indexStart + itemsPerPage);
-
+ 
   return (
     <div className="overviewt">
       <p className="big-overview">Overview</p>
@@ -76,19 +103,10 @@ const OverviewS: React.FC = () => {
       {/* Skills Section */}
       <Skills skills={skillsData} />
 
-      {/* Favorite Courses Section */}
-      <FavoriteCourses courses={displayedCourses} />
+      {/* Favorite Courses Section - now displays current page courses */}
+      <FavoriteCourses />
 
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="pagination-container">
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
-        </div>
-      )}
+    
     </div>
   );
 };
