@@ -231,14 +231,16 @@ a {
     z-index: 1100;
     font-size: 2rem;
     color: #13044A;
-    background: none;
+    background: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
     transition: color 0.3s ease;
+    border-radius: 5px;
 }
 
 .exxi{
     color: #FFCC00;
+    background: none;
 }
 
 /* Sidebar hidden on mobile */
